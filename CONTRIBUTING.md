@@ -1,6 +1,6 @@
-# Contributing to DevUtil
+# Contributing to devutil.xyz
 
-First off, thank you for considering contributing to DevUtil! It's people like you that make DevUtil such a great tool.
+First off, thank you for considering contributing to devutil.xyz! It's people like you that make devutil.xyz such a great tool.
 
 ## How Can I Contribute?
 

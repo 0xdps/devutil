@@ -47,7 +47,7 @@ export default function Home() {
                     Privacy First
                 </h3>
                 <p className="text-blue-800 dark:text-blue-200">
-                    All utilities on DevUtil run entirely in your browser. No data is sent to any server,
+                    All utilities on devutil.xyz run entirely in your browser. No data is sent to any server,
                     ensuring complete privacy and security for your sensitive information.
                 </p>
             </div>

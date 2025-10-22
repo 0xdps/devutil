@@ -1,4 +1,4 @@
-# DevUtil - Development Guide
+# devutil.xyz - Development Guide
 
 ## Quick Start
 
@@ -57,23 +57,23 @@ devutil/
 Create a new file in `src/pages/`, e.g., `src/pages/UrlEncoder.tsx`:
 
 ```tsx
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function UrlEncoder() {
-  const [input, setInput] = useState('')
-  const [output, setOutput] = useState('')
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
 
   const encode = () => {
-    setOutput(encodeURIComponent(input))
-  }
+    setOutput(encodeURIComponent(input));
+  };
 
   const decode = () => {
     try {
-      setOutput(decodeURIComponent(input))
+      setOutput(decodeURIComponent(input));
     } catch (err) {
-      setOutput('Invalid URL encoding')
+      setOutput("Invalid URL encoding");
     }
-  }
+  };
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -82,7 +82,7 @@ export default function UrlEncoder() {
       </h2>
       {/* Add your UI here */}
     </div>
-  )
+  );
 }
 ```
 
@@ -91,10 +91,10 @@ export default function UrlEncoder() {
 In `src/App.tsx`, import and add the route:
 
 ```tsx
-import UrlEncoder from './pages/UrlEncoder'
+import UrlEncoder from "./pages/UrlEncoder";
 
 // Add to Routes
-<Route path="/url-encoder" element={<UrlEncoder />} />
+<Route path="/url-encoder" element={<UrlEncoder />} />;
 ```
 
 ### 3. Add to Navigation
@@ -137,24 +137,24 @@ Always provide dark mode variants:
 ### Copy to Clipboard
 
 ```tsx
-import { copyToClipboard } from '../utils/helpers'
+import { copyToClipboard } from "../utils/helpers";
 
 const handleCopy = async () => {
-  const success = await copyToClipboard(text)
+  const success = await copyToClipboard(text);
   if (success) {
-    alert('Copied!')
+    alert("Copied!");
   }
-}
+};
 ```
 
 ### Download File
 
 ```tsx
-import { downloadAsFile } from '../utils/helpers'
+import { downloadAsFile } from "../utils/helpers";
 
 const handleDownload = () => {
-  downloadAsFile(content, 'filename.txt', 'text/plain')
-}
+  downloadAsFile(content, "filename.txt", "text/plain");
+};
 ```
 
 ## Testing
@@ -162,15 +162,15 @@ const handleDownload = () => {
 Write tests for your components in `tests/`:
 
 ```tsx
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import UrlEncoder from '../src/pages/UrlEncoder'
+import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import UrlEncoder from "../src/pages/UrlEncoder";
 
-describe('UrlEncoder', () => {
-  it('encodes URL correctly', () => {
+describe("UrlEncoder", () => {
+  it("encodes URL correctly", () => {
     // Your test here
-  })
-})
+  });
+});
 ```
 
 ## Best Practices
@@ -185,6 +185,7 @@ describe('UrlEncoder', () => {
 ## Browser Compatibility
 
 The app supports:
+
 - Chrome (latest 2 versions)
 - Firefox (latest 2 versions)
 - Safari (latest 2 versions)
@@ -206,6 +207,7 @@ Currently, no environment variables are required. All functionality runs client-
 ## Troubleshooting
 
 ### Port 3000 already in use
+
 ```bash
 # Kill the process using port 3000
 lsof -ti:3000 | xargs kill -9
@@ -215,6 +217,7 @@ npm run dev -- --port 3001
 ```
 
 ### TypeScript errors
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
@@ -222,6 +225,7 @@ npm install
 ```
 
 ### Build errors
+
 ```bash
 # Check for TypeScript errors
 npx tsc --noEmit

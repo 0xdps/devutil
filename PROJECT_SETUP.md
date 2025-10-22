@@ -1,14 +1,16 @@
-# DevUtil Project Setup - Summary
+# devutil.xyz Project Setup - Summary
 
 ## ✅ What's Been Created
 
 ### 1. Complete Project Foundation
+
 - **React 18** + **TypeScript** + **Vite** setup
 - **Tailwind CSS** for styling with dark mode support
 - **React Router** for client-side routing
 - Modern build configuration with ESLint
 
 ### 2. Project Structure
+
 ```
 devutil/
 ├── src/
@@ -34,16 +36,19 @@ devutil/
 ```
 
 ### 3. Working Tools (Sample Implementations)
+
 ✅ **JSON Formatter** - Format and minify JSON
 ✅ **Base64 Encoder/Decoder** - Encode/decode Base64 strings
 
 ### 4. Documentation
+
 - `README.md` - Comprehensive project overview with roadmap
 - `DEVELOPMENT.md` - Detailed developer guide
 - `CONTRIBUTING.md` - Contribution guidelines
 - `LICENSE` - MIT License
 
 ### 5. Configuration Files
+
 - `package.json` - Dependencies and scripts
 - `tsconfig.json` - TypeScript configuration
 - `vite.config.ts` - Vite bundler config
@@ -54,11 +59,13 @@ devutil/
 ## 🚀 Next Steps
 
 ### Immediate (You can do now):
+
 1. The dev server is running at `http://localhost:3000/`
 2. Open the browser to see the app
 3. Try the JSON Formatter and Base64 tools
 
 ### Short Term (Next utilities to implement):
+
 1. **CSV Parser** - Parse and convert CSV files
 2. **URL Encoder/Decoder** - Encode and decode URLs
 3. **Hash Generator** - Generate MD5, SHA hashes
@@ -66,6 +73,7 @@ devutil/
 5. **UUID Generator** - Generate UUIDs
 
 ### Medium Term (Enhanced features):
+
 1. Add more encoding tools (HTML entities, etc.)
 2. Implement regex tester
 3. Add diff checker
@@ -74,6 +82,7 @@ devutil/
 6. Implement code minifier
 
 ### Long Term (Advanced features):
+
 1. Add dark/light theme toggle
 2. Implement favorites/bookmarks system
 3. Add keyboard shortcuts
