@@ -43,15 +43,15 @@ const tools = [
             { name: 'Timestamp Tools', path: '/timestamp-tools', icon: '⏰', description: 'Unix, Cron expression' },
         ],
     },
-    {
-        category: 'Developer Playground',
-        items: [
-            { name: 'Markdown Previewer', path: '/markdown-previewer', icon: '📝', description: 'Live markdown editor' },
-            { name: 'HTML Playground', path: '/html-playground', icon: '🌐', description: 'HTML/CSS/JS preview' },
-            { name: 'JavaScript Runner', path: '/js-runner', icon: '🟨', description: 'Execute JS in sandbox' },
-            { name: 'Regex Playground', path: '/regex-playground', icon: '🎮', description: 'Interactive regex testing' },
-        ],
-    },
+    // {
+    //     category: 'Developer Playground',
+    //     items: [
+    //         { name: 'Markdown Previewer', path: '/markdown-previewer', icon: '📝', description: 'Live markdown editor' },
+    //         { name: 'HTML Playground', path: '/html-playground', icon: '🌐', description: 'HTML/CSS/JS preview' },
+    //         { name: 'JavaScript Runner', path: '/js-runner', icon: '🟨', description: 'Execute JS in sandbox' },
+    //         { name: 'Regex Playground', path: '/regex-playground', icon: '🎮', description: 'Interactive regex testing' },
+    //     ],
+    // },
 ]
 
 interface SidebarProps {
