@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 
 const popularTools = [
-    { name: 'JSON Formatter', path: '/json-formatter', icon: '📋', description: 'Format and validate JSON' },
-    { name: 'Base64 Encoder/Decoder', path: '/base64', icon: '🔤', description: 'Encode and decode Base64' },
-    { name: 'Hash Generator', path: '/hash-generator', icon: '#️⃣', description: 'Generate MD5, SHA hashes' },
-    { name: 'Password Generator', path: '/password-generator', icon: '🔐', description: 'Create secure passwords' },
+    { name: 'Data Transform', path: '/data-transform', icon: '�', description: 'Convert between JSON, CSV, YAML, TOML, XML' },
+    { name: 'Encoding/Decoding', path: '/encoding', icon: '🔤', description: 'Base64, URL, HTML, Base32/58 encoding' },
+    { name: 'Text Utilities', path: '/text-utilities', icon: '📝', description: 'Case converter, text counter, cleaner' },
+    { name: 'Generator Toolkit', path: '/generators', icon: '🎲', description: 'UUID, Password, Random, Lorem Ipsum' },
+    { name: 'Hash & Verify', path: '/hash-verify', icon: '#️⃣', description: 'Generate hashes, HMAC, password strength' },
+    { name: 'JWT Decoder', path: '/jwt-decoder', icon: '🎫', description: 'Decode and inspect JWT tokens' },
+    { name: 'Code Formatter', path: '/code-formatter', icon: '✨', description: 'Beautify/minify HTML, CSS, JS, JSON' },
+    { name: 'Color Picker', path: '/color-picker', icon: '🎨', description: 'HEX, RGB, HSL color converter' },
 ]
 
 export default function Home() {
@@ -40,16 +44,6 @@ export default function Home() {
                         </div>
                     </Link>
                 ))}
-            </div>
-
-            <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                    Privacy First
-                </h3>
-                <p className="text-blue-800 dark:text-blue-200">
-                    All utilities on devutil.xyz run entirely in your browser. No data is sent to any server,
-                    ensuring complete privacy and security for your sensitive information.
-                </p>
             </div>
         </div>
     )
