@@ -5,6 +5,132 @@ export default function CodeFormatter() {
   const [code, setCode] = useState('')
   const [language, setLanguage] = useState<'json' | 'html' | 'css' | 'javascript'>('json')
 
+  const beautifyHTML = (html: string): string => {
+    let formatted = ''
+    let indent = 0
+    const tab = '  '
+    
+    // Remove existing whitespace between tags
+    html = html.replace(/>\s+</g, '><').trim()
+    
+    // Split by tags
+    const tokens = html.split(/(<[^>]+>)/g).filter(token => token.trim())
+    
+    tokens.forEach(token => {
+      if (token.match(/^<\/\w/)) {
+        // Closing tag
+        indent = Math.max(0, indent - 1)
+        formatted += tab.repeat(indent) + token + '\n'
+      } else if (token.match(/^<\w[^>]*[^/]>$/)) {
+        // Opening tag
+        formatted += tab.repeat(indent) + token + '\n'
+        indent++
+      } else if (token.match(/^<\w[^>]*\/>$/)) {
+        // Self-closing tag
+        formatted += tab.repeat(indent) + token + '\n'
+      } else {
+        // Text content
+        const trimmed = token.trim()
+        if (trimmed) {
+          formatted += tab.repeat(indent) + trimmed + '\n'
+        }
+      }
+    })
+    
+    return formatted.trim()
+  }
+
+  const beautifyCSS = (css: string): string => {
+    let formatted = ''
+    let indent = 0
+    const tab = '  '
+    
+    // Remove all existing whitespace for clean processing
+    css = css.replace(/\s+/g, ' ').trim()
+    
+    // Add newlines and indentation
+    let i = 0
+    while (i < css.length) {
+      const char = css[i]
+      
+      if (char === '{') {
+        formatted += ' {\n'
+        indent++
+        i++
+        // Skip any whitespace after opening brace
+        while (i < css.length && css[i] === ' ') i++
+      } else if (char === '}') {
+        indent = Math.max(0, indent - 1)
+        formatted += '\n' + tab.repeat(indent) + '}\n'
+        i++
+      } else if (char === ';') {
+        formatted += ';\n' + tab.repeat(indent)
+        i++
+        // Skip any whitespace after semicolon
+        while (i < css.length && css[i] === ' ') i++
+      } else {
+        // Add proper indentation at the start of a line
+        if (formatted.endsWith('\n') || formatted === '') {
+          formatted += tab.repeat(indent)
+        }
+        formatted += char
+        i++
+      }
+    }
+    
+    return formatted.replace(/\n\s*\n/g, '\n').trim()
+  }
+
+  const beautifyJS = (js: string): string => {
+    let formatted = ''
+    let indent = 0
+    const tab = '  '
+    
+    // Remove excessive whitespace but keep single spaces
+    js = js.replace(/\s+/g, ' ').trim()
+    
+    let i = 0
+    while (i < js.length) {
+      const char = js[i]
+      
+      if (char === '{') {
+        formatted += ' {\n'
+        indent++
+        i++
+        // Skip whitespace after opening brace
+        while (i < js.length && js[i] === ' ') i++
+        formatted += tab.repeat(indent)
+      } else if (char === '}') {
+        // Remove trailing spaces before closing brace
+        formatted = formatted.trimEnd()
+        if (!formatted.endsWith('\n')) {
+          formatted += '\n'
+        }
+        indent = Math.max(0, indent - 1)
+        formatted += tab.repeat(indent) + '}\n'
+        i++
+        // Add indentation for next line if not at end
+        if (i < js.length && js[i] !== '}') {
+          formatted += tab.repeat(indent)
+        }
+      } else if (char === ';') {
+        formatted += ';\n'
+        i++
+        // Skip whitespace after semicolon
+        while (i < js.length && js[i] === ' ') i++
+        // Add indentation for next statement
+        if (i < js.length && js[i] !== '}') {
+          formatted += tab.repeat(indent)
+        }
+      } else {
+        formatted += char
+        i++
+      }
+    }
+    
+    return formatted.replace(/\n\s*\n/g, '\n').trim()
+  }
+
   const beautify = () => {
     try {
       let formatted = ''
@@ -12,16 +138,14 @@ export default function CodeFormatter() {
         case 'json':
           formatted = JSON.stringify(JSON.parse(code), null, 2)
           break
-        case 'javascript':
-        case 'css':
         case 'html':
-          // Basic beautification
-          formatted = code
-            .replace(/([{};,])/g, '$1\n')
-            .replace(/\n\s*\n/g, '\n')
-            .split('\n')
-            .map(line => line.trim())
-            .join('\n')
+          formatted = beautifyHTML(code)
+          break
+        case 'css':
+          formatted = beautifyCSS(code)
+          break
+        case 'javascript':
+          formatted = beautifyJS(code)
           break
       }
       setCode(formatted)
