@@ -8,32 +8,81 @@ DevUtil is a web-based toolkit designed to help developers perform common daily 
 
 ## ✨ Features
 
-### Text & Data Processing
-- **JSON Formatter** - Format, validate, and beautify JSON
-- **CSV Parser** - Parse, validate, and convert CSV files
-- **YAML/JSON Converter** - Convert between YAML and JSON formats
-- **XML Formatter** - Format and validate XML documents
-- **Markdown Preview** - Live markdown editor with preview
+### 🧩 JSON Tools
 
-### Encoding & Decoding
+- **JSON Formatter & Validator** - Format, validate, and beautify JSON
+- **JSON Minifier / Beautifier** - Optimize JSON size
+- **JSON to YAML Converter** - Convert JSON to YAML format
+- **YAML to JSON Converter** - Convert YAML to JSON format
+- **JSON to CSV Converter** - Transform JSON data to CSV
+- **JSON Diff** - Compare two JSON files
+- **JSON Path Evaluator** - Query JSON using JSONPath
+
+### 🔤 Text & String Tools
+
 - **Base64 Encoder/Decoder** - Encode and decode Base64 strings
 - **URL Encoder/Decoder** - Encode and decode URLs
-- **HTML Entities Encoder/Decoder** - Convert HTML entities
-- **JWT Decoder** - Decode and inspect JWT tokens
-- **Hash Generator** - Generate MD5, SHA-1, SHA-256, SHA-512 hashes
-
-### Encryption & Security
-- **Text Encryptor/Decryptor** - AES encryption for sensitive text
-- **Password Generator** - Generate secure random passwords
+- **HTML Escape/Unescape** - Convert HTML entities
+- **String Case Converter** - Convert between camelCase, snake_case, kebab-case, PascalCase
 - **UUID Generator** - Generate UUIDs (v1, v4, v5)
+- **Lorem Ipsum Generator** - Generate placeholder text
+- **Word/Character/Line Counter** - Count text statistics
+- **Text Cleaner** - Remove duplicates, trim, and clean text
 
-### Developer Tools
-- **Regex Tester** - Test regular expressions with highlighting
-- **Diff Checker** - Compare text/code differences
+### 🔒 Encryption & Hashing
+
+- **Hash Generator** - Generate MD5, SHA-1, SHA-256, SHA-512 hashes
+- **HMAC Generator** - Generate HMAC signatures
+- **AES Encrypt/Decrypt** - AES encryption for sensitive text
+- **RSA Key Pair Generator** - Generate RSA public/private keys
+- **JWT Decoder** - Decode and inspect JWT tokens (offline)
+- **Password Strength Tester** - Test password security
+- **Password Generator** - Generate secure random passwords
+
+### 🌐 Web Tools
+
+- **HTTP Header Parser** - Parse and analyze HTTP headers
+- **User-Agent Decoder** - Decode user agent strings
+- **URL Parser & Builder** - Parse and construct URLs
+- **Query String Generator** - Build query strings
+- **Meta Tag Generator** - Generate HTML meta tags
+- **Robots.txt Generator** - Create robots.txt files
+- **Sitemap.xml Generator** - Generate XML sitemaps
+
+### 🧠 Data Tools
+
+- **CSV to JSON Converter** - Convert CSV to JSON
+- **JSON to CSV Converter** - Convert JSON to CSV
+- **XML to JSON Converter** - Transform XML to JSON
+- **JSON to XML Converter** - Transform JSON to XML
+- **Excel to JSON Parser** - Parse .xlsx files to JSON
+- **Data URI Generator** - Create data URIs
+- **Base32/Base58 Encoder** - Encode/decode Base32 and Base58
+
+### 🎨 Code Formatters & Converters
+
+- **HTML/CSS/JS Beautifier** - Format and beautify code
+- **SQL Formatter** - Format SQL queries
+- **XML Formatter** - Format and validate XML
+- **HTML/CSS/JS Minifier** - Minify code for production
+- **Regex Tester & Builder** - Test regular expressions with highlighting
+- **Code Diff Viewer** - Compare code differences
+
+### ⚙️ Utility Generators
+
+- **UUID/GUID Generator** - Generate unique identifiers
+- **Random String/Number Generator** - Generate random values
 - **Color Picker** - Pick and convert colors (HEX, RGB, HSL)
 - **Unix Timestamp Converter** - Convert timestamps to readable dates
-- **Code Minifier** - Minify JavaScript, CSS, HTML
-- **QR Code Generator** - Generate QR codes from text/URLs
+- **QR Code Generator/Decoder** - Generate and decode QR codes
+- **Cron Expression Generator** - Build and parse cron expressions
+
+### 💬 Developer Playground
+
+- **JavaScript Runner** - Execute JavaScript in sandboxed environment
+- **Markdown Previewer** - Live markdown editor with preview
+- **HTML Previewer** - Interactive HTML + CSS + JS playground
+- **Regex Playground** - Interactive regex testing environment
 
 ## 🛠️ Tech Stack
 
@@ -69,6 +118,7 @@ devutil/
 ## 🚦 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm or yarn or pnpm
 
@@ -94,23 +144,81 @@ npm test
 
 ## 🎯 Roadmap
 
-- [ ] Core project setup with React + TypeScript + Vite
-- [ ] Implement basic UI layout with navigation
-- [ ] Add JSON formatter utility
-- [ ] Add CSV parser utility
-- [ ] Add Base64 encoder/decoder
-- [ ] Add URL encoder/decoder
-- [ ] Add Hash generator
-- [ ] Add Password generator
-- [ ] Add Regex tester
-- [ ] Add Diff checker
-- [ ] Add Color picker
-- [ ] Add Unix timestamp converter
-- [ ] Add dark/light theme support
-- [ ] Add favorites/bookmarks for frequently used tools
-- [ ] Add keyboard shortcuts
+### Phase 1: Foundation ✅
+
+- [x] Core project setup with React + TypeScript + Vite
+- [x] Implement basic UI layout with navigation
+- [x] JSON formatter utility
+- [x] Base64 encoder/decoder
+
+### Phase 2: Essential Tools (In Progress)
+
+- [ ] CSV parser & converter
+- [ ] URL encoder/decoder
+- [ ] Hash generator (MD5, SHA-1, SHA-256, SHA-512)
+- [ ] Password generator & strength tester
+- [ ] UUID/GUID generator
+- [ ] Regex tester with syntax highlighting
+- [ ] Text case converter
+- [ ] HTML escape/unescape
+
+### Phase 3: Advanced Tools
+
+- [ ] JWT decoder
+- [ ] AES encryption/decryption
+- [ ] Diff checker (text & code)
+- [ ] Color picker & converter
+- [ ] Unix timestamp converter
+- [ ] QR code generator
+- [ ] Lorem ipsum generator
+- [ ] Markdown previewer
+
+### Phase 4: Code Tools
+
+- [ ] HTML/CSS/JS beautifier
+- [ ] Code minifier
+- [ ] SQL formatter
+- [ ] XML formatter
+- [ ] JavaScript playground
+- [ ] HTML previewer
+
+### Phase 5: Data Converters
+
+- [ ] JSON to YAML converter
+- [ ] JSON to CSV converter
+- [ ] XML to JSON converter
+- [ ] Excel to JSON parser
+- [ ] Data URI generator
+- [ ] Cron expression builder
+
+### Phase 6: Web Tools
+
+- [ ] HTTP header parser
+- [ ] User-agent decoder
+- [ ] URL parser & builder
+- [ ] Meta tag generator
+- [ ] Robots.txt generator
+- [ ] Query string builder
+
+### Phase 7: Enhancement Features
+
+- [ ] Dark/light theme toggle
+- [ ] Search across all tools
+- [ ] Favorites/bookmarks for frequently used tools
+- [ ] Keyboard shortcuts
+- [ ] Tool history (LocalStorage)
+- [ ] Export/Import functionality
 - [ ] Progressive Web App (PWA) support
-- [ ] Export/Import functionality for all tools
+- [ ] Offline support
+
+### Phase 8: Advanced Features
+
+- [ ] Public API access
+- [ ] Browser extension
+- [ ] VS Code plugin
+- [ ] Shareable links with encoded data
+- [ ] Multi-tab support
+- [ ] Custom tool configurations
 
 ## 🤝 Contributing
 
