@@ -4,87 +4,52 @@ import Fuse from 'fuse.js'
 
 const tools = [
     {
-        category: 'Data Converters',
+        category: 'Core Utilities',
         items: [
             { name: 'Data Transform', path: '/data-transform', icon: '🔄', description: 'JSON, CSV, YAML, TOML, XML' },
-            { name: 'JSON Diff', path: '/json-diff', icon: '🔍', description: '' },
-            { name: 'JSON Path Evaluator', path: '/json-path', icon: '🛤️', description: '' },
+            { name: 'Encoding/Decoding', path: '/encoding', icon: '🔤', description: 'Base64, URL, HTML, Base32/58' },
+            { name: 'Text Utilities', path: '/text-utilities', icon: '📝', description: 'Case, counter, cleaner' },
         ],
     },
     {
-        category: 'Text & String Tools',
+        category: 'Security & Identity',
         items: [
-            { name: 'Base64 Encoder/Decoder', path: '/base64', icon: '🔤', description: '' },
-            { name: 'URL Encoder/Decoder', path: '/url-encoder', icon: '🔗', description: '' },
-            { name: 'HTML Escape/Unescape', path: '/html-escape', icon: '🏷️', description: '' },
-            { name: 'String Case Converter', path: '/case-converter', icon: '🔡', description: '' },
-            { name: 'UUID Generator', path: '/uuid-generator', icon: '🆔', description: '' },
-            { name: 'Lorem Ipsum Generator', path: '/lorem-ipsum', icon: '📝', description: '' },
-            { name: 'Word/Character/Line Counter', path: '/text-counter', icon: '�', description: '' },
-            { name: 'Text Cleaner', path: '/text-cleaner', icon: '🧹', description: '' },
+            { name: 'Generator Toolkit', path: '/generators', icon: '🎲', description: 'UUID, Password, Random, Lorem' },
+            { name: 'Hash & Verify', path: '/hash-verify', icon: '#️⃣', description: 'Hash, HMAC, password strength' },
+            { name: 'JWT Decoder', path: '/jwt-decoder', icon: '🎫', description: 'Decode & inspect JWT tokens' },
         ],
     },
     {
-        category: 'Encryption & Hashing',
+        category: 'Code & Development',
         items: [
-            { name: 'Hash Generator', path: '/hash-generator', icon: '#️⃣', description: '' },
-            { name: 'HMAC Generator', path: '/hmac-generator', icon: '🔐', description: '' },
-            { name: 'AES Encrypt/Decrypt', path: '/aes-encryption', icon: '�', description: '' },
-            { name: 'RSA Key Pair Generator', path: '/rsa-generator', icon: '🔑', description: '' },
-            { name: 'JWT Decoder', path: '/jwt-decoder', icon: '🎫', description: '' },
-            { name: 'Password Strength Tester', path: '/password-tester', icon: '💪', description: '' },
-            { name: 'Password Generator', path: '/password-generator', icon: '�', description: '' },
+            { name: 'Code Formatter', path: '/code-formatter', icon: '✨', description: 'Beautify/minify code' },
+            { name: 'JSON Tools', path: '/json-tools', icon: '📋', description: 'Diff, Path evaluator' },
+            { name: 'Regex Tester', path: '/regex-tester', icon: '🔎', description: 'Test & build patterns' },
+            { name: 'Code Diff', path: '/code-diff', icon: '🔀', description: 'Compare code/text' },
         ],
     },
     {
-        category: 'Web Tools',
+        category: 'Web & Design',
         items: [
-            { name: 'HTTP Header Parser', path: '/http-header-parser', icon: '�', description: '' },
-            { name: 'User-Agent Decoder', path: '/user-agent-decoder', icon: '�️', description: '' },
-            { name: 'URL Parser & Builder', path: '/url-parser', icon: '🔗', description: '' },
-            { name: 'Query String Generator', path: '/query-string', icon: '❓', description: '' },
-            { name: 'Meta Tag Generator', path: '/meta-tag-generator', icon: '🏷️', description: '' },
-            { name: 'Robots.txt Generator', path: '/robots-generator', icon: '🤖', description: '' },
-            { name: 'Sitemap.xml Generator', path: '/sitemap-generator', icon: '🗺️', description: '' },
+            { name: 'Color Picker', path: '/color-picker', icon: '🎨', description: 'HEX, RGB, HSL converter' },
+            { name: 'URL Tools', path: '/url-tools', icon: '🔗', description: 'Parser, builder, query string' },
+            { name: 'SEO Generator', path: '/seo-generator', icon: '🏷️', description: 'Meta, robots, sitemap' },
+            { name: 'QR Code', path: '/qr-code', icon: '📱', description: 'Generate & decode' },
         ],
     },
     {
-        category: 'Data Tools',
+        category: 'Utilities',
         items: [
-            { name: 'Excel to JSON Parser', path: '/excel-to-json', icon: '📊', description: '' },
-            { name: 'Data URI Generator', path: '/data-uri-generator', icon: '📦', description: '' },
-            { name: 'Base32/Base58 Encoder', path: '/base32-base58', icon: '🔢', description: '' },
-        ],
-    },
-    {
-        category: 'Code Formatters & Converters',
-        items: [
-            { name: 'HTML/CSS/JS Beautifier', path: '/code-beautifier', icon: '✨', description: '' },
-            { name: 'SQL Formatter', path: '/sql-formatter', icon: '🗄️', description: '' },
-            { name: 'XML Formatter', path: '/xml-formatter', icon: '📄', description: '' },
-            { name: 'HTML/CSS/JS Minifier', path: '/code-minifier', icon: '📦', description: '' },
-            { name: 'Regex Tester & Builder', path: '/regex-tester', icon: '🔎', description: '' },
-            { name: 'Code Diff Viewer', path: '/code-diff', icon: '🔀', description: '' },
-        ],
-    },
-    {
-        category: 'Utility Generators',
-        items: [
-            { name: 'UUID/GUID Generator', path: '/uuid-guid-generator', icon: '🆔', description: '' },
-            { name: 'Random String/Number Generator', path: '/random-generator', icon: '🎲', description: '' },
-            { name: 'Color Picker', path: '/color-picker', icon: '🎨', description: '' },
-            { name: 'Unix Timestamp Converter', path: '/timestamp-converter', icon: '⏰', description: '' },
-            { name: 'QR Code Generator/Decoder', path: '/qr-code', icon: '📱', description: '' },
-            { name: 'Cron Expression Generator', path: '/cron-generator', icon: '⏱️', description: '' },
+            { name: 'Timestamp Tools', path: '/timestamp-tools', icon: '⏰', description: 'Unix, Cron expression' },
         ],
     },
     {
         category: 'Developer Playground',
         items: [
-            { name: 'JavaScript Runner', path: '/js-runner', icon: '🟨', description: '' },
-            { name: 'Markdown Previewer', path: '/markdown-previewer', icon: '📝', description: '' },
-            { name: 'HTML Previewer', path: '/html-previewer', icon: '🌐', description: '' },
-            { name: 'Regex Playground', path: '/regex-playground', icon: '�', description: '' },
+            { name: 'Markdown Previewer', path: '/markdown-previewer', icon: '📝', description: 'Live markdown editor' },
+            { name: 'HTML Playground', path: '/html-playground', icon: '🌐', description: 'HTML/CSS/JS preview' },
+            { name: 'JavaScript Runner', path: '/js-runner', icon: '🟨', description: 'Execute JS in sandbox' },
+            { name: 'Regex Playground', path: '/regex-playground', icon: '🎮', description: 'Interactive regex testing' },
         ],
     },
 ]
@@ -159,12 +124,13 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             {/* Sidebar */}
             <aside
                 className={`
-                    fixed md:relative top-0 left-0 z-50 md:z-0
-                    w-64 h-screen md:h-[calc(100vh-4rem)]
+                    fixed md:sticky top-0 left-0 z-50 md:z-0
+                    w-64 h-screen md:h-full
                     bg-white dark:bg-gray-800 shadow-lg
                     transition-transform duration-300 ease-in-out
                     ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-                    flex flex-col
+                    md:translate-x-0
+                    flex flex-col flex-shrink-0
                 `}
             >
                 <div className="flex-shrink-0 p-4 border-b border-gray-200 dark:border-gray-700">

@@ -8,72 +8,41 @@ DevUtil is a web-based toolkit designed to help developers perform common daily 
 
 ## ✨ Features
 
-### 🔄 Data Converters
+### 🔄 Core Utilities
 
 - **Data Transform** - Convert between JSON, CSV, YAML, TOML, and XML formats
-- **JSON Diff** - Compare two JSON files
-- **JSON Path Evaluator** - Query JSON using JSONPath
+- **Encoding/Decoding** - Encode/decode Base64, URL, HTML entities, Base32/58, and Data URIs
+- **Text Utilities** - Case converter (camelCase, snake_case, etc.), text counter, and text cleaner
 
-### 🔤 Text & String Tools
+### 🔐 Security & Identity
 
-- **Base64 Encoder/Decoder** - Encode and decode Base64 strings
-- **URL Encoder/Decoder** - Encode and decode URLs
-- **HTML Escape/Unescape** - Convert HTML entities
-- **String Case Converter** - Convert between camelCase, snake_case, kebab-case, PascalCase
-- **UUID Generator** - Generate UUIDs (v1, v4, v5)
-- **Lorem Ipsum Generator** - Generate placeholder text
-- **Word/Character/Line Counter** - Count text statistics
-- **Text Cleaner** - Remove duplicates, trim, and clean text
-
-### 🔒 Encryption & Hashing
-
-- **Hash Generator** - Generate MD5, SHA-1, SHA-256, SHA-512 hashes
-- **HMAC Generator** - Generate HMAC signatures
-- **AES Encrypt/Decrypt** - AES encryption for sensitive text
-- **RSA Key Pair Generator** - Generate RSA public/private keys
+- **Generator Toolkit** - Generate UUIDs, passwords, random strings/numbers, and Lorem Ipsum text
+- **Hash & Verify** - Generate MD5, SHA-1, SHA-256, SHA-512 hashes, HMAC signatures, and test password strength
 - **JWT Decoder** - Decode and inspect JWT tokens (offline)
-- **Password Strength Tester** - Test password security
-- **Password Generator** - Generate secure random passwords
 
-### 🌐 Web Tools
+### 💻 Code & Development
 
-- **HTTP Header Parser** - Parse and analyze HTTP headers
-- **User-Agent Decoder** - Decode user agent strings
-- **URL Parser & Builder** - Parse and construct URLs
-- **Query String Generator** - Build query strings
-- **Meta Tag Generator** - Generate HTML meta tags
-- **Robots.txt Generator** - Create robots.txt files
-- **Sitemap.xml Generator** - Generate XML sitemaps
+- **Code Formatter** - Beautify and minify HTML, CSS, JavaScript, SQL, and XML
+- **JSON Tools** - Compare JSON files (diff) and query using JSONPath
+- **Regex Tester** - Test and build regular expressions with syntax highlighting
+- **Code Diff** - Compare code and text differences
 
-### 🧠 Data Tools
+### 🎨 Web & Design
 
-- **Excel to JSON Parser** - Parse .xlsx files to JSON
-- **Data URI Generator** - Create data URIs
-- **Base32/Base58 Encoder** - Encode/decode Base32 and Base58
+- **Color Picker** - Pick and convert colors between HEX, RGB, and HSL formats
+- **URL Tools** - Parse, build URLs, and generate query strings
+- **SEO Generator** - Generate meta tags, robots.txt, and sitemap.xml files
+- **QR Code** - Generate and decode QR codes
 
-### 🎨 Code Formatters & Converters
+### ⚙️ Utilities
 
-- **HTML/CSS/JS Beautifier** - Format and beautify code
-- **SQL Formatter** - Format SQL queries
-- **XML Formatter** - Format and validate XML
-- **HTML/CSS/JS Minifier** - Minify code for production
-- **Regex Tester & Builder** - Test regular expressions with highlighting
-- **Code Diff Viewer** - Compare code differences
+- **Timestamp Tools** - Convert Unix timestamps and build Cron expressions
 
-### ⚙️ Utility Generators
+### 🎮 Developer Playground
 
-- **UUID/GUID Generator** - Generate unique identifiers
-- **Random String/Number Generator** - Generate random values
-- **Color Picker** - Pick and convert colors (HEX, RGB, HSL)
-- **Unix Timestamp Converter** - Convert timestamps to readable dates
-- **QR Code Generator/Decoder** - Generate and decode QR codes
-- **Cron Expression Generator** - Build and parse cron expressions
-
-### 💬 Developer Playground
-
-- **JavaScript Runner** - Execute JavaScript in sandboxed environment
 - **Markdown Previewer** - Live markdown editor with preview
-- **HTML Previewer** - Interactive HTML + CSS + JS playground
+- **HTML Playground** - Interactive HTML + CSS + JS playground
+- **JavaScript Runner** - Execute JavaScript in sandboxed environment
 - **Regex Playground** - Interactive regex testing environment
 
 ## 🛠️ Tech Stack
@@ -139,59 +108,47 @@ npm test
 ### Phase 1: Foundation ✅
 
 - [x] Core project setup with React + TypeScript + Vite
-- [x] Implement basic UI layout with navigation
+- [x] Implement basic UI layout with navigation and search
 - [x] Data Transform utility (JSON, CSV, YAML, TOML, XML converter)
-- [x] Base64 encoder/decoder
+- [x] Sidebar with fuzzy search
+- [x] Responsive design with mobile support
 
-### Phase 2: Essential Tools (In Progress)
+### Phase 2: Core Utilities (In Progress)
 
-- [ ] URL encoder/decoder
-- [ ] Hash generator (MD5, SHA-1, SHA-256, SHA-512)
-- [ ] Password generator & strength tester
-- [ ] UUID/GUID generator
-- [ ] Regex tester with syntax highlighting
-- [ ] Text case converter
-- [ ] HTML escape/unescape
+- [ ] **Encoding/Decoding** - Base64, URL, HTML, Base32/58, Data URI
+- [ ] **Text Utilities** - Case converter, text counter, text cleaner
+- [ ] **Generator Toolkit** - UUID, Password, Random, Lorem Ipsum
 
-### Phase 3: Advanced Tools
+### Phase 3: Security & Development Tools
 
-- [ ] JWT decoder
-- [ ] AES encryption/decryption
-- [ ] Diff checker (text & code)
-- [ ] Color picker & converter
-- [ ] Unix timestamp converter
-- [ ] QR code generator
-- [ ] Lorem ipsum generator
-- [ ] Markdown previewer
+- [ ] **Hash & Verify** - Hash generator, HMAC, password strength tester
+- [ ] **JWT Decoder** - Decode and inspect JWT tokens
+- [ ] **Code Formatter** - Beautify/minify HTML/CSS/JS/SQL/XML
+- [ ] **JSON Tools** - JSON Diff, JSONPath evaluator
 
-### Phase 4: Code Tools
+### Phase 4: Code & Design Tools
 
-- [ ] HTML/CSS/JS beautifier
-- [ ] Code minifier
-- [ ] SQL formatter
-- [ ] XML formatter
-- [ ] JavaScript playground
-- [ ] HTML previewer
+- [ ] **Regex Tester** - Test and build regex patterns
+- [ ] **Code Diff** - Compare code/text differences
+- [ ] **Color Picker** - HEX, RGB, HSL converter and picker
+- [ ] **URL Tools** - URL parser, builder, query string generator
 
-### Phase 5: Data Converters
+### Phase 5: Advanced Tools
 
-- [ ] Excel to JSON parser
-- [ ] Data URI generator
-- [ ] Cron expression builder
+- [ ] **SEO Generator** - Meta tags, robots.txt, sitemap.xml
+- [ ] **QR Code** - Generate and decode QR codes
+- [ ] **Timestamp Tools** - Unix converter, Cron expression builder
 
-### Phase 6: Web Tools
+### Phase 6: Developer Playground
 
-- [ ] HTTP header parser
-- [ ] User-agent decoder
-- [ ] URL parser & builder
-- [ ] Meta tag generator
-- [ ] Robots.txt generator
-- [ ] Query string builder
+- [ ] **Markdown Previewer** - Live markdown editor
+- [ ] **HTML Playground** - Interactive HTML/CSS/JS environment
+- [ ] **JavaScript Runner** - Sandboxed JS execution
+- [ ] **Regex Playground** - Interactive regex testing
 
 ### Phase 7: Enhancement Features
 
 - [ ] Dark/light theme toggle
-- [ ] Search across all tools
 - [ ] Favorites/bookmarks for frequently used tools
 - [ ] Keyboard shortcuts
 - [ ] Tool history (LocalStorage)
@@ -199,14 +156,12 @@ npm test
 - [ ] Progressive Web App (PWA) support
 - [ ] Offline support
 
-### Phase 8: Advanced Features
+### Phase 8: Future Ideas
 
-- [ ] Public API access
-- [ ] Browser extension
-- [ ] VS Code plugin
 - [ ] Shareable links with encoded data
-- [ ] Multi-tab support
+- [ ] Multi-tab support within tools
 - [ ] Custom tool configurations
+- [ ] Tool usage analytics (privacy-preserving)
 
 ## 🤝 Contributing
 
