@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-          © {currentYear} devutil.xyz — All rights reserved. Powered by{' '}
+          © {currentYear} <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> — All rights reserved. Powered by{' '}
           <a
             href="https://devendrapratap.xyz"
             target="_blank"
