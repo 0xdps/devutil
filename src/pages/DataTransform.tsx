@@ -2,7 +2,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import * as yaml from 'js-yaml'
 import Papa from 'papaparse'
-import TOML from '@iarna/toml'
+import { parse as parseTOML, stringify as stringifyTOML } from 'smol-toml'
 
 type DataFormat = 'json' | 'csv' | 'yaml' | 'toml'
 
@@ -48,8 +48,8 @@ export default function DataTransform() {
     return yaml.load(text)
   }
 
-  const parseTOML = (text: string) => {
-    return TOML.parse(text)
+  const parseToml = (text: string) => {
+    return parseTOML(text)
   }
 
   const toJSON = (data: unknown) => {
@@ -97,9 +97,9 @@ export default function DataTransform() {
         data.forEach((item, index) => {
           tomlData[`item_${index}`] = item
         })
-        return TOML.stringify(tomlData as TOML.JsonMap)
+        return stringifyTOML(tomlData)
       }
-      return TOML.stringify(data as TOML.JsonMap)
+      return stringifyTOML(data)
     } catch (err) {
       throw new Error(`TOML conversion failed: ${err instanceof Error ? err.message : 'Unknown error'}`)
     }
@@ -127,7 +127,7 @@ export default function DataTransform() {
           data = parseYAML(input)
           break
         case 'toml':
-          data = parseTOML(input)
+          data = parseToml(input)
           break
         default:
           throw new Error('Unsupported input format')
