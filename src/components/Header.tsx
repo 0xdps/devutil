@@ -52,7 +52,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
     return (
         <>
             <header className="bg-white dark:bg-gray-800 shadow-sm w-full sticky top-0 z-10">
-                <div className="px-4 sm:px-6 lg:px-8">
+                <div className="pl-4 pr-4 sm:pr-6 lg:pr-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex items-center gap-3">
                             {/* Hamburger menu button */}
