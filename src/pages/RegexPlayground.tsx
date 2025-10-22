@@ -1,10 +1,19 @@
+import ComingSoon from './ComingSoon'
+
 export default function RegexPlayground() {
   return (
-    <div className="max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Regex Playground</h1>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">
-        Interactive regex testing environment coming soon...
-      </p>
-    </div>
+    <ComingSoon
+      title="Regex Playground"
+      description="Interactive environment for testing and learning regular expressions"
+      icon="🎮"
+      features={[
+        'Live regex testing with instant match highlighting',
+        'Multi-line text support with line-by-line analysis',
+        'Regex pattern library with common use cases',
+        'Explanation of regex syntax and groups',
+        'Test multiple regex flags (global, multiline, case-insensitive)',
+        'Save and share regex patterns',
+      ]}
+    />
   )
 }

@@ -25,6 +25,19 @@ export default function HashVerify() {
     feedback: string[]
   } | null>(null)
 
+  const hashInfo = {
+    md5: 'MD5 (128-bit): Fast but cryptographically broken. Use only for checksums, not security.',
+    sha1: 'SHA-1 (160-bit): Deprecated for security. Collision vulnerabilities found.',
+    sha256: 'SHA-256 (256-bit): Industry standard. Secure and widely used for passwords and certificates.',
+    sha512: 'SHA-512 (512-bit): Most secure. Longer output, slower but more resistant to attacks.'
+  }
+
+  const hmacInfo = {
+    sha1: 'HMAC-SHA1: Message authentication using SHA-1. Fast but less secure.',
+    sha256: 'HMAC-SHA256: Industry standard for API signatures and JWT tokens.',
+    sha512: 'HMAC-SHA512: Maximum security for message authentication codes.'
+  }
+
   const generateHash = () => {
     if (!hashInput) {
       toast.error('Please enter text to hash')
@@ -193,19 +206,52 @@ export default function HashVerify() {
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                   Algorithm
                 </label>
-                <select
-                  value={hashAlgorithm}
-                  onChange={(e) => setHashAlgorithm(e.target.value as 'md5' | 'sha1' | 'sha256' | 'sha512')}
-                  className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg"
-                >
-                  <option value="md5">MD5</option>
-                  <option value="sha1">SHA-1</option>
-                  <option value="sha256">SHA-256</option>
-                  <option value="sha512">SHA-512</option>
-                </select>
+                <div className="flex flex-wrap gap-3">
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hashAlgorithm === 'md5'}
+                      onChange={() => setHashAlgorithm('md5')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">MD5</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hashAlgorithm === 'sha1'}
+                      onChange={() => setHashAlgorithm('sha1')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">SHA-1</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hashAlgorithm === 'sha256'}
+                      onChange={() => setHashAlgorithm('sha256')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">SHA-256</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hashAlgorithm === 'sha512'}
+                      onChange={() => setHashAlgorithm('sha512')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">SHA-512</span>
+                  </label>
+                </div>
+                <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <p className="text-sm text-blue-900 dark:text-blue-100">
+                    ℹ️ {hashInfo[hashAlgorithm]}
+                  </p>
+                </div>
               </div>
 
               <div>
@@ -254,18 +300,43 @@ export default function HashVerify() {
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                   Algorithm
                 </label>
-                <select
-                  value={hmacAlgorithm}
-                  onChange={(e) => setHmacAlgorithm(e.target.value as 'sha1' | 'sha256' | 'sha512')}
-                  className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg"
-                >
-                  <option value="sha1">HMAC-SHA1</option>
-                  <option value="sha256">HMAC-SHA256</option>
-                  <option value="sha512">HMAC-SHA512</option>
-                </select>
+                <div className="flex flex-wrap gap-3">
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hmacAlgorithm === 'sha1'}
+                      onChange={() => setHmacAlgorithm('sha1')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">HMAC-SHA1</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hmacAlgorithm === 'sha256'}
+                      onChange={() => setHmacAlgorithm('sha256')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">HMAC-SHA256</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input
+                      type="radio"
+                      checked={hmacAlgorithm === 'sha512'}
+                      onChange={() => setHmacAlgorithm('sha512')}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">HMAC-SHA512</span>
+                  </label>
+                </div>
+                <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <p className="text-sm text-blue-900 dark:text-blue-100">
+                    ℹ️ {hmacInfo[hmacAlgorithm]}
+                  </p>
+                </div>
               </div>
 
               <div>

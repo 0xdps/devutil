@@ -3,7 +3,7 @@ import { v1 as uuidv1, v4 as uuidv4, v5 as uuidv5 } from 'uuid'
 import toast from 'react-hot-toast'
 
 export default function GeneratorToolkit() {
-  const [activeTab, setActiveTab] = useState<'uuid' | 'password' | 'random' | 'lorem'>('uuid')
+  const [activeTab, setActiveTab] = useState<'uuid' | 'random' | 'lorem'>('uuid')
   
   // UUID States
   const [uuidType, setUuidType] = useState<'v1' | 'v4' | 'v5'>('v4')
@@ -12,25 +12,39 @@ export default function GeneratorToolkit() {
   const [uuidName, setUuidName] = useState('example.com')
   const [generatedUuids, setGeneratedUuids] = useState<string[]>([])
   
-  // Password States
-  const [passwordLength, setPasswordLength] = useState(16)
-  const [includeUppercase, setIncludeUppercase] = useState(true)
-  const [includeLowercase, setIncludeLowercase] = useState(true)
-  const [includeNumbers, setIncludeNumbers] = useState(true)
-  const [includeSymbols, setIncludeSymbols] = useState(true)
-  const [generatedPassword, setGeneratedPassword] = useState('')
-  
   // Random States
   const [randomType, setRandomType] = useState<'string' | 'number' | 'hex'>('string')
   const [randomLength, setRandomLength] = useState(16)
   const [randomMin, setRandomMin] = useState(0)
   const [randomMax, setRandomMax] = useState(100)
+  const [randomIncludeUppercase, setRandomIncludeUppercase] = useState(true)
+  const [randomIncludeLowercase, setRandomIncludeLowercase] = useState(true)
+  const [randomIncludeNumbers, setRandomIncludeNumbers] = useState(true)
+  const [randomIncludeSymbols, setRandomIncludeSymbols] = useState(true)
   const [generatedRandom, setGeneratedRandom] = useState('')
   
   // Lorem States
   const [loremType, setLoremType] = useState<'paragraphs' | 'sentences' | 'words'>('paragraphs')
   const [loremCount, setLoremCount] = useState(3)
   const [generatedLorem, setGeneratedLorem] = useState('')
+
+  const uuidInfo = {
+    v1: 'Time-based UUID. Includes timestamp and MAC address. Good for database keys.',
+    v4: 'Random UUID. Most common. 122 random bits. Secure and collision-resistant.',
+    v5: 'Name-based UUID using SHA-1. Same input always generates same UUID. Reproducible.'
+  }
+
+  const randomInfo = {
+    string: 'Customizable random string with character type selection. Perfect for passwords, tokens, and secure keys with symbols.',
+    number: 'Random integer within specified range. Uses Math.random().',
+    hex: 'Hexadecimal string using cryptographically secure random bytes. Great for API keys and tokens.'
+  }
+
+  const loremInfo = {
+    paragraphs: 'Generate full paragraphs with multiple sentences. Good for content mockups.',
+    sentences: 'Generate individual sentences. Perfect for short text placeholders.',
+    words: 'Generate random words. Useful for testing word wrapping and layouts.'
+  }
 
   // UUID Generator
   const generateUuid = () => {
@@ -54,42 +68,27 @@ export default function GeneratorToolkit() {
     toast.success(`Generated ${uuids.length} UUID${uuids.length > 1 ? 's' : ''}`)
   }
 
-  // Password Generator
-  const generatePassword = () => {
-    let charset = ''
-    if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz'
-    if (includeNumbers) charset += '0123456789'
-    if (includeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?'
-    
-    if (!charset) {
-      toast.error('Please select at least one character type')
-      return
-    }
-    
-    let password = ''
-    const array = new Uint32Array(passwordLength)
-    crypto.getRandomValues(array)
-    
-    for (let i = 0; i < passwordLength; i++) {
-      password += charset[array[i] % charset.length]
-    }
-    
-    setGeneratedPassword(password)
-    toast.success('Password generated')
-  }
-
   // Random Generator
   const generateRandom = () => {
     let result = ''
     
     switch (randomType) {
       case 'string': {
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+        let charset = ''
+        if (randomIncludeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        if (randomIncludeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz'
+        if (randomIncludeNumbers) charset += '0123456789'
+        if (randomIncludeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?/~`'
+        
+        if (!charset) {
+          toast.error('Please select at least one character type')
+          return
+        }
+        
         const array = new Uint32Array(randomLength)
         crypto.getRandomValues(array)
         for (let i = 0; i < randomLength; i++) {
-          result += chars[array[i] % chars.length]
+          result += charset[array[i] % charset.length]
         }
         break
       }
@@ -210,16 +209,6 @@ export default function GeneratorToolkit() {
             🆔 UUID Generator
           </button>
           <button
-            onClick={() => setActiveTab('password')}
-            className={`pb-4 px-1 border-b-2 font-medium text-sm transition-colors ${
-              activeTab === 'password'
-                ? 'border-primary-600 text-primary-600 dark:border-primary-400 dark:text-primary-400'
-                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'
-            }`}
-          >
-            🔐 Password Generator
-          </button>
-          <button
             onClick={() => setActiveTab('random')}
             className={`pb-4 px-1 border-b-2 font-medium text-sm transition-colors ${
               activeTab === 'random'
@@ -281,6 +270,11 @@ export default function GeneratorToolkit() {
                     />
                     <span className="text-sm text-gray-700 dark:text-gray-300">v5 (Name-based)</span>
                   </label>
+                </div>
+                <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <p className="text-sm text-blue-900 dark:text-blue-100">
+                    ℹ️ {uuidInfo[uuidType]}
+                  </p>
                 </div>
               </div>
 
@@ -351,94 +345,6 @@ export default function GeneratorToolkit() {
         </div>
       )}
 
-      {/* Password Generator Tab */}
-      {activeTab === 'password' && (
-        <div className="space-y-6">
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Password Generator</h2>
-            
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Password Length: {passwordLength}
-                </label>
-                <input
-                  type="range"
-                  min="8"
-                  max="64"
-                  value={passwordLength}
-                  onChange={(e) => setPasswordLength(Number(e.target.value))}
-                  className="w-full"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={includeUppercase}
-                    onChange={(e) => setIncludeUppercase(e.target.checked)}
-                    className="mr-2"
-                  />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Include Uppercase (A-Z)</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={includeLowercase}
-                    onChange={(e) => setIncludeLowercase(e.target.checked)}
-                    className="mr-2"
-                  />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Include Lowercase (a-z)</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={includeNumbers}
-                    onChange={(e) => setIncludeNumbers(e.target.checked)}
-                    className="mr-2"
-                  />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Include Numbers (0-9)</span>
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={includeSymbols}
-                    onChange={(e) => setIncludeSymbols(e.target.checked)}
-                    className="mr-2"
-                  />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Include Symbols (!@#$...)</span>
-                </label>
-              </div>
-
-              <button
-                onClick={generatePassword}
-                className="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors"
-              >
-                Generate Password
-              </button>
-            </div>
-          </div>
-
-          {generatedPassword && (
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Generated Password</h3>
-                <button
-                  onClick={() => copyToClipboard(generatedPassword)}
-                  className="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 font-medium"
-                >
-                  📋 Copy
-                </button>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded font-mono text-lg text-center break-all">
-                <span className="text-gray-900 dark:text-white">{generatedPassword}</span>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* Random Generator Tab */}
       {activeTab === 'random' && (
         <div className="space-y-6">
@@ -479,22 +385,73 @@ export default function GeneratorToolkit() {
                     <span className="text-sm text-gray-700 dark:text-gray-300">Hex</span>
                   </label>
                 </div>
+                <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <p className="text-sm text-blue-900 dark:text-blue-100">
+                    ℹ️ {randomInfo[randomType]}
+                  </p>
+                </div>
               </div>
 
               {randomType === 'string' && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Length: {randomLength}
-                  </label>
-                  <input
-                    type="range"
-                    min="8"
-                    max="128"
-                    value={randomLength}
-                    onChange={(e) => setRandomLength(Number(e.target.value))}
-                    className="w-full"
-                  />
-                </div>
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Length: {randomLength}
+                    </label>
+                    <input
+                      type="range"
+                      min="8"
+                      max="128"
+                      value={randomLength}
+                      onChange={(e) => setRandomLength(Number(e.target.value))}
+                      className="w-full"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                      Character Types
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <label className="flex items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                        <input
+                          type="checkbox"
+                          checked={randomIncludeUppercase}
+                          onChange={(e) => setRandomIncludeUppercase(e.target.checked)}
+                          className="mr-3 w-4 h-4"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">Uppercase (A-Z)</span>
+                      </label>
+                      <label className="flex items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                        <input
+                          type="checkbox"
+                          checked={randomIncludeLowercase}
+                          onChange={(e) => setRandomIncludeLowercase(e.target.checked)}
+                          className="mr-3 w-4 h-4"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">Lowercase (a-z)</span>
+                      </label>
+                      <label className="flex items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                        <input
+                          type="checkbox"
+                          checked={randomIncludeNumbers}
+                          onChange={(e) => setRandomIncludeNumbers(e.target.checked)}
+                          className="mr-3 w-4 h-4"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">Numbers (0-9)</span>
+                      </label>
+                      <label className="flex items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                        <input
+                          type="checkbox"
+                          checked={randomIncludeSymbols}
+                          onChange={(e) => setRandomIncludeSymbols(e.target.checked)}
+                          className="mr-3 w-4 h-4"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">Symbols (!@#$...)</span>
+                      </label>
+                    </div>
+                  </div>
+                </>
               )}
 
               {randomType === 'hex' && (
@@ -607,6 +564,11 @@ export default function GeneratorToolkit() {
                     />
                     <span className="text-sm text-gray-700 dark:text-gray-300">Words</span>
                   </label>
+                </div>
+                <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <p className="text-sm text-blue-900 dark:text-blue-100">
+                    ℹ️ {loremInfo[loremType]}
+                  </p>
                 </div>
               </div>
 

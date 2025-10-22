@@ -311,6 +311,22 @@ export default function TextUtilities() {
               UPPER CASE
             </button>
           </div>
+
+          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+            <h3 className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-3">Case Types:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-blue-700 dark:text-blue-300">
+              <div><strong>camelCase:</strong> First word lowercase, subsequent words capitalized. Common in JavaScript/TypeScript.</div>
+              <div><strong>snake_case:</strong> All lowercase with underscores. Popular in Python, Ruby, and database naming.</div>
+              <div><strong>kebab-case:</strong> All lowercase with hyphens. Used in URLs, CSS classes, and file names.</div>
+              <div><strong>PascalCase:</strong> Every word capitalized, no separators. Common for class names in most languages.</div>
+              <div><strong>CONSTANT_CASE:</strong> All uppercase with underscores. Used for constants and environment variables.</div>
+              <div><strong>dot.case:</strong> All lowercase with dots. Sometimes used in configuration files and object paths.</div>
+              <div><strong>Title Case:</strong> First letter of each word capitalized. Used in headings and titles.</div>
+              <div><strong>Sentence case:</strong> Only first letter capitalized. Natural language formatting.</div>
+              <div><strong>lower case:</strong> All characters lowercase. Simple text normalization.</div>
+              <div><strong>UPPER CASE:</strong> All characters uppercase. Emphasis or constant declaration.</div>
+            </div>
+          </div>
         </div>
       )}
 
