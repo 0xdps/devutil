@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { marked } from 'marked'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function MarkdownPreviewer() {
+  const meta = toolsMetadata.markdownPreviewer
   const [markdown, setMarkdown] = useState('# Hello World\n\nStart typing your markdown here...')
 
   const getHTML = () => {
@@ -9,8 +12,18 @@ export default function MarkdownPreviewer() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Markdown Previewer</h1>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Markdown Previewer</h1>
       
       <div className="grid md:grid-cols-2 gap-6">
         <div>
@@ -31,5 +44,6 @@ export default function MarkdownPreviewer() {
         </div>
       </div>
     </div>
+    </>
   )
 }

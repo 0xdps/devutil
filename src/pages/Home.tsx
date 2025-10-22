@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 const popularTools = [
     { name: 'Data Transform', path: '/data-transform', icon: '�', description: 'Convert between JSON, CSV, YAML, TOML, XML' },
@@ -12,19 +14,31 @@ const popularTools = [
 ]
 
 export default function Home() {
+    const meta = toolsMetadata.home
+    
     return (
-        <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                    Developer Utilities
-                </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
-                    A collection of useful tools for everyday development tasks
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-                    🔒 All tools run locally in your browser - your data never leaves your device
-                </p>
-            </div>
+        <>
+            <SEO
+                title={meta.title}
+                description={meta.description}
+                keywords={meta.keywords}
+                canonical={meta.canonical}
+                type="website"
+                toolName={meta.toolName}
+                toolDescription={meta.toolDescription}
+            />
+            <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                        Developer Utilities
+                    </h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-400">
+                        A collection of useful tools for everyday development tasks
+                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                        🔒 All tools run locally in your browser - your data never leaves your device
+                    </p>
+                </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {popularTools.map((tool) => (
@@ -46,5 +60,6 @@ export default function Home() {
                 ))}
             </div>
         </div>
+        </>
     )
 }

@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function JWTDecoder() {
+  const meta = toolsMetadata.jwtDecoder
+  
   const [token, setToken] = useState('')
   const [decoded, setDecoded] = useState<{
     header: Record<string, unknown>
@@ -112,15 +116,25 @@ export default function JWTDecoder() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          JWT Decoder
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Decode and inspect JWT tokens
-        </p>
-      </div>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            JWT Decoder
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Decode and inspect JWT tokens
+          </p>
+        </div>
 
       <div className="space-y-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
@@ -298,5 +312,6 @@ export default function JWTDecoder() {
         )}
       </div>
     </div>
+    </>
   )
 }

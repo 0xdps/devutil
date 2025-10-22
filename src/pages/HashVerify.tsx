@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import CryptoJS from 'crypto-js'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function HashVerify() {
+  const meta = toolsMetadata.hashVerify
   const [activeTab, setActiveTab] = useState<'hash' | 'hmac' | 'password'>('hash')
   
   // Hash States
@@ -154,15 +157,25 @@ export default function HashVerify() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Hash & Verify
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Generate hashes, HMAC signatures, and test password strength
-        </p>
-      </div>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            Hash & Verify
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Generate hashes, HMAC signatures, and test password strength
+          </p>
+        </div>
 
       {/* Tabs */}
       <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
@@ -458,5 +471,6 @@ export default function HashVerify() {
         </div>
       )}
     </div>
+    </>
   )
 }

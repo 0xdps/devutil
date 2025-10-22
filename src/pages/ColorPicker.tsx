@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function ColorPicker() {
+  const meta = toolsMetadata.colorPicker
   const [color, setColor] = useState('#3b82f6')
 
   const hexToRgb = (hex: string) => {
@@ -45,8 +48,18 @@ export default function ColorPicker() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Color Picker</h1>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Color Picker</h1>
       
       <div className="grid md:grid-cols-2 gap-6">
         <div>
@@ -93,5 +106,6 @@ export default function ColorPicker() {
         </div>
       </div>
     </div>
+    </>
   )
 }

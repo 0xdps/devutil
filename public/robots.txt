@@ -1,0 +1,13 @@
+# robots.txt for devutil.xyz
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://devutil.xyz/sitemap.xml
+
+# Crawl-delay for bots
+Crawl-delay: 1
+
+# Block specific bots if needed (example)
+# User-agent: BadBot
+# Disallow: /

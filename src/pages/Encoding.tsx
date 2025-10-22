@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 type EncodingType = 'base64' | 'url' | 'html' | 'base32' | 'base58' | 'datauri'
 
@@ -19,6 +21,8 @@ const encodingTypes: EncodingOption[] = [
 ]
 
 export default function Encoding() {
+  const meta = toolsMetadata.encoding
+  
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [selectedType, setSelectedType] = useState<EncodingType>('base64')
@@ -265,15 +269,25 @@ export default function Encoding() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Encoding/Decoding
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Encode and decode text using various encoding schemes
-        </p>
-      </div>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            Encoding/Decoding
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Encode and decode text using various encoding schemes
+          </p>
+        </div>
 
       {/* Encoding Type Selector */}
       <div className="mb-6">
@@ -414,5 +428,6 @@ export default function Encoding() {
         </div>
       </div>
     </div>
+    </>
   )
 }

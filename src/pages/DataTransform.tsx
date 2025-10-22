@@ -4,6 +4,8 @@ import * as yaml from 'js-yaml'
 import Papa from 'papaparse'
 import { parse as parseTOML, stringify as stringifyTOML } from 'smol-toml'
 import { XMLParser, XMLBuilder } from 'fast-xml-parser'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 type DataFormat = 'json' | 'csv' | 'yaml' | 'toml' | 'xml'
 
@@ -22,6 +24,8 @@ const formats: FormatOption[] = [
 ]
 
 export default function DataTransform() {
+  const meta = toolsMetadata.dataTransform
+  
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [fromFormat, setFromFormat] = useState<DataFormat>('json')
@@ -227,13 +231,23 @@ export default function DataTransform() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-        Data Transform & Converter
-      </h2>
-      <p className="text-gray-600 dark:text-gray-400 mb-6">
-        Convert between JSON, CSV, YAML, and TOML formats
-      </p>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+          Data Transform & Converter
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-6">
+          Convert between JSON, CSV, YAML, and TOML formats
+        </p>
 
       {/* Format Selectors */}
       <div className="flex items-center gap-4 mb-6 flex-wrap">
@@ -402,5 +416,6 @@ age = 25`}
         </div>
       </div>
     </div>
+    </>
   )
 }

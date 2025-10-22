@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { v1 as uuidv1, v4 as uuidv4, v5 as uuidv5 } from 'uuid'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function GeneratorToolkit() {
+  const meta = toolsMetadata.generators
   const [activeTab, setActiveTab] = useState<'uuid' | 'random' | 'lorem'>('uuid')
   
   // UUID States
@@ -185,15 +188,25 @@ export default function GeneratorToolkit() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Generator Toolkit
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Generate UUIDs, secure passwords, random values, and Lorem Ipsum text
-        </p>
-      </div>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            Generator Toolkit
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Generate UUIDs, secure passwords, random values, and Lorem Ipsum text
+          </p>
+        </div>
 
       {/* Tab Navigation */}
       <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
@@ -614,5 +627,6 @@ export default function GeneratorToolkit() {
         </div>
       )}
     </div>
+    </>
   )
 }

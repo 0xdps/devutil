@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function CodeFormatter() {
+  const meta = toolsMetadata.codeFormatter
   const [code, setCode] = useState('')
   const [language, setLanguage] = useState<'json' | 'html' | 'css' | 'javascript'>('json')
 
@@ -173,8 +176,18 @@ export default function CodeFormatter() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Code Formatter</h1>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Code Formatter</h1>
       
       <div className="mb-4">
         <select
@@ -205,5 +218,6 @@ export default function CodeFormatter() {
         </button>
       </div>
     </div>
+    </>
   )
 }

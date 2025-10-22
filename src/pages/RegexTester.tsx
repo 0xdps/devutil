@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function RegexTester() {
+  const meta = toolsMetadata.regexTester
   const [pattern, setPattern] = useState('')
   const [flags, setFlags] = useState('g')
   const [testString, setTestString] = useState('')
@@ -19,8 +22,18 @@ export default function RegexTester() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Regex Tester</h1>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Regex Tester</h1>
       
       <div className="space-y-6">
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border">
@@ -69,5 +82,6 @@ export default function RegexTester() {
         )}
       </div>
     </div>
+    </>
   )
 }

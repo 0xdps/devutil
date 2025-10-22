@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import cronstrue from 'cronstrue'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function TimestampTools() {
+  const meta = toolsMetadata.timestampTools
   const [timestamp, setTimestamp] = useState(Math.floor(Date.now() / 1000))
   const [cronExpression, setCronExpression] = useState('0 0 * * *')
   const [cronDescription, setCronDescription] = useState('')
@@ -28,8 +31,18 @@ export default function TimestampTools() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Timestamp Tools</h1>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">Timestamp Tools</h1>
       
       <div className="space-y-6">
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border">
@@ -84,5 +97,6 @@ export default function TimestampTools() {
         </div>
       </div>
     </div>
+    </>
   )
 }

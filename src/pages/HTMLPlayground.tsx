@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 export default function HTMLPlayground() {
+  const meta = toolsMetadata.htmlPlayground
   const [html, setHtml] = useState('<h1>Hello World</h1>')
   const [css, setCss] = useState('h1 { color: blue; }')
   const [js, setJs] = useState('console.log("Hello")')
@@ -21,8 +24,18 @@ export default function HTMLPlayground() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">HTML Playground</h1>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">HTML Playground</h1>
       
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
@@ -65,5 +78,6 @@ export default function HTMLPlayground() {
         </div>
       </div>
     </div>
+    </>
   )
 }

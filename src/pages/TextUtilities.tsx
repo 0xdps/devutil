@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
+import { toolsMetadata } from '../config/seoConfig'
 
 type CaseType = 'camelCase' | 'snake_case' | 'kebab-case' | 'PascalCase' | 'CONSTANT_CASE' | 'dot.case' | 'Title Case' | 'Sentence case' | 'lower case' | 'UPPER CASE'
 
 export default function TextUtilities() {
+  const meta = toolsMetadata.textUtilities
+  
   const [text, setText] = useState('')
   const [activeTab, setActiveTab] = useState<'case' | 'counter' | 'cleaner'>('case')
 
@@ -198,15 +202,25 @@ export default function TextUtilities() {
   const stats = getTextStats()
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Text Utilities
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Convert case, count text statistics, and clean up your text
-        </p>
-      </div>
+    <>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonical}
+        toolName={meta.toolName}
+        toolDescription={meta.toolDescription}
+        toolUrl={meta.canonical}
+      />
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            Text Utilities
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Convert case, count text statistics, and clean up your text
+          </p>
+        </div>
 
       {/* Tab Navigation */}
       <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
@@ -403,5 +417,6 @@ export default function TextUtilities() {
         </div>
       )}
     </div>
+    </>
   )
 }

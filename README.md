@@ -4,7 +4,7 @@
 
 ## 🚀 Overview
 
-DevUtil is a web-based toolkit designed to help developers perform common daily tasks efficiently. All tools run locally in your browser - no data is sent to any server, ensuring your privacy and security.
+devutil.xyz is a web-based toolkit designed to help developers perform common daily tasks efficiently. All tools run locally in your browser - no data is sent to any server, ensuring your privacy and security.
 
 ## ✨ Features
 
