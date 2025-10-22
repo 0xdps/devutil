@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 export default function Base64Tool() {
     const [input, setInput] = useState('')
@@ -10,9 +11,12 @@ export default function Base64Tool() {
             setError('')
             const encoded = btoa(input)
             setOutput(encoded)
+            toast.success('Encoded successfully!')
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Encoding failed')
+            const errorMessage = err instanceof Error ? err.message : 'Encoding failed'
+            setError(errorMessage)
             setOutput('')
+            toast.error('Encoding failed')
         }
     }
 
@@ -21,9 +25,12 @@ export default function Base64Tool() {
             setError('')
             const decoded = atob(input)
             setOutput(decoded)
+            toast.success('Decoded successfully!')
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Decoding failed - invalid Base64')
+            const errorMessage = err instanceof Error ? err.message : 'Decoding failed - invalid Base64'
+            setError(errorMessage)
             setOutput('')
+            toast.error('Decoding failed')
         }
     }
 
@@ -36,9 +43,9 @@ export default function Base64Tool() {
     const copyToClipboard = async () => {
         try {
             await navigator.clipboard.writeText(output)
-            alert('Copied to clipboard!')
+            toast.success('Copied to clipboard!')
         } catch (err) {
-            alert('Failed to copy')
+            toast.error('Failed to copy to clipboard')
         }
     }
 

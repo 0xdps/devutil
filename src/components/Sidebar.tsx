@@ -2,6 +2,12 @@ import { Link, useLocation } from 'react-router-dom'
 
 const tools = [
     {
+        category: 'Data Transform',
+        items: [
+            { name: 'Data Converter', path: '/data-transform', icon: '🔄' },
+        ],
+    },
+    {
         category: 'Text & Data',
         items: [
             { name: 'JSON Formatter', path: '/json-formatter', icon: '📋' },

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 export default function JsonFormatter() {
     const [input, setInput] = useState('')
@@ -10,9 +11,12 @@ export default function JsonFormatter() {
             setError('')
             const parsed = JSON.parse(input)
             setOutput(JSON.stringify(parsed, null, 2))
+            toast.success('JSON formatted successfully!')
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Invalid JSON')
+            const errorMessage = err instanceof Error ? err.message : 'Invalid JSON'
+            setError(errorMessage)
             setOutput('')
+            toast.error('Invalid JSON')
         }
     }
 
@@ -21,9 +25,12 @@ export default function JsonFormatter() {
             setError('')
             const parsed = JSON.parse(input)
             setOutput(JSON.stringify(parsed))
+            toast.success('JSON minified successfully!')
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Invalid JSON')
+            const errorMessage = err instanceof Error ? err.message : 'Invalid JSON'
+            setError(errorMessage)
             setOutput('')
+            toast.error('Invalid JSON')
         }
     }
 
