@@ -3,7 +3,11 @@ import { Link, useSearchParams } from 'react-router-dom'
 import Logo from './Logo'
 import { PrivacyModal, SupportModal } from './Modal'
 
-export default function Header() {
+interface HeaderProps {
+    onMenuClick: () => void
+}
+
+export default function Header({ onMenuClick }: HeaderProps) {
     const [searchParams, setSearchParams] = useSearchParams()
     const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
     const [isSupportOpen, setIsSupportOpen] = useState(false)
@@ -47,25 +51,39 @@ export default function Header() {
 
     return (
         <>
-            <header className="bg-white dark:bg-gray-800 shadow-sm w-full">
+            <header className="bg-white dark:bg-gray-800 shadow-sm w-full sticky top-0 z-10">
                 <div className="px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
-                        <Link to="/" className="flex items-center gap-3">
-                            <Logo className="w-8 h-8" />
-                            <h1 className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                                devutil.xyz
-                            </h1>
-                        </Link>
-                        <nav className="flex items-center space-x-4">
+                        <div className="flex items-center gap-3">
+                            {/* Hamburger menu button */}
+                            <button
+                                onClick={onMenuClick}
+                                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                aria-label="Toggle menu"
+                            >
+                                <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
+
+                            <Link to="/" className="flex items-center gap-2">
+                                <Logo className="w-8 h-8" />
+                                <h1 className="text-xl sm:text-2xl font-bold text-primary-600 dark:text-primary-400">
+                                    devutil.xyz
+                                </h1>
+                            </Link>
+                        </div>
+
+                        <nav className="flex items-center space-x-2 sm:space-x-4">
                             <button
                                 onClick={handlePrivacyOpen}
-                                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                             >
                                 Privacy
                             </button>
                             <button
                                 onClick={handleSupportOpen}
-                                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                             >
                                 Support
                             </button>
@@ -73,7 +91,7 @@ export default function Header() {
                                 href="https://github.com/devendrapratap02/devutil"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                             >
                                 GitHub
                             </a>
