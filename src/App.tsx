@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import DataTransform from './pages/DataTransform'
 import Encoding from './pages/Encoding'
+import TextUtilities from './pages/TextUtilities'
 import ComingSoon from './pages/ComingSoon'
 
 function App() {
@@ -16,20 +17,12 @@ function App() {
                     <Route path="/encoding" element={<Encoding />} />
                     
                     {/* Text Utilities */}
-                    <Route path="/text-utilities" element={
-                        <ComingSoon 
-                            title="Text Utilities"
-                            description="String case converter, text counter, and text cleaner"
-                            icon="📝"
-                            features={[
-                                'Case Converter (camelCase, snake_case, kebab-case, PascalCase)',
-                                'Word, Character, and Line Counter',
-                                'Text Cleaner (remove duplicates, trim, clean)'
-                            ]}
-                        />
-                    } />
-                    
-                    {/* Generator Toolkit */}
+        <Route path="/" element={<DataTransform />} />
+        <Route path="/data-transform" element={<DataTransform />} />
+        <Route path="/encoding" element={<Encoding />} />
+        <Route path="/text-utilities" element={<TextUtilities />} />
+        
+        {/* Coming Soon Pages */}                    {/* Generator Toolkit */}
                     <Route path="/generators" element={
                         <ComingSoon 
                             title="Generator Toolkit"
