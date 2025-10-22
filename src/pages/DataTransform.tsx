@@ -3,8 +3,9 @@ import toast from 'react-hot-toast'
 import * as yaml from 'js-yaml'
 import Papa from 'papaparse'
 import { parse as parseTOML, stringify as stringifyTOML } from 'smol-toml'
+import { XMLParser, XMLBuilder } from 'fast-xml-parser'
 
-type DataFormat = 'json' | 'csv' | 'yaml' | 'toml'
+type DataFormat = 'json' | 'csv' | 'yaml' | 'toml' | 'xml'
 
 interface FormatOption {
   value: DataFormat
@@ -17,6 +18,7 @@ const formats: FormatOption[] = [
   { value: 'csv', label: 'CSV', icon: '📊' },
   { value: 'yaml', label: 'YAML', icon: '📝' },
   { value: 'toml', label: 'TOML', icon: '⚙️' },
+  { value: 'xml', label: 'XML', icon: '🔖' },
 ]
 
 export default function DataTransform() {
@@ -50,6 +52,18 @@ export default function DataTransform() {
 
   const parseToml = (text: string) => {
     return parseTOML(text)
+  }
+
+  const parseXML = (text: string) => {
+    const parser = new XMLParser({
+      ignoreAttributes: false,
+      attributeNamePrefix: '@_',
+      textNodeName: '#text',
+      parseAttributeValue: true,
+      parseTagValue: true,
+      trimValues: true,
+    })
+    return parser.parse(text)
   }
 
   const toJSON = (data: unknown) => {
@@ -105,6 +119,28 @@ export default function DataTransform() {
     }
   }
 
+  const toXML = (data: unknown) => {
+    try {
+      const builder = new XMLBuilder({
+        ignoreAttributes: false,
+        attributeNamePrefix: '@_',
+        textNodeName: '#text',
+        format: true,
+        indentBy: '  ',
+        suppressEmptyNode: true,
+      })
+      
+      // Wrap data in a root element if it's an array
+      const xmlData = Array.isArray(data) 
+        ? { root: { item: data } } 
+        : { root: data }
+      
+      return builder.build(xmlData)
+    } catch (err) {
+      throw new Error(`XML conversion failed: ${err instanceof Error ? err.message : 'Unknown error'}`)
+    }
+  }
+
   const convert = () => {
     try {
       setError('')
@@ -129,6 +165,9 @@ export default function DataTransform() {
         case 'toml':
           data = parseToml(input)
           break
+        case 'xml':
+          data = parseXML(input)
+          break
         default:
           throw new Error('Unsupported input format')
       }
@@ -147,6 +186,9 @@ export default function DataTransform() {
           break
         case 'toml':
           result = toTOML(data)
+          break
+        case 'xml':
+          result = toXML(data)
           break
         default:
           throw new Error('Unsupported output format')
@@ -303,7 +345,7 @@ export default function DataTransform() {
         <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">
           Format Examples
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
           <div>
             <strong className="text-blue-800 dark:text-blue-200">JSON:</strong>
             <pre className="mt-1 text-blue-700 dark:text-blue-300 overflow-x-auto">
@@ -319,6 +361,21 @@ export default function DataTransform() {
 {`name,age
 John,30
 Jane,25`}
+            </pre>
+          </div>
+          <div>
+            <strong className="text-blue-800 dark:text-blue-200">XML:</strong>
+            <pre className="mt-1 text-blue-700 dark:text-blue-300 overflow-x-auto">
+{`<root>
+  <item>
+    <name>John</name>
+    <age>30</age>
+  </item>
+  <item>
+    <name>Jane</name>
+    <age>25</age>
+  </item>
+</root>`}
             </pre>
           </div>
           <div>

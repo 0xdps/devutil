@@ -6,30 +6,30 @@ const tools = [
     {
         category: 'Data Transform',
         items: [
-            { name: 'Data Converter', path: '/data-transform', icon: '🔄' },
+            { name: 'Data Converter', path: '/data-transform', icon: '🔄', description: 'JSON, CSV, YAML, TOML, XML' },
         ],
     },
     {
         category: 'Text & Data',
         items: [
-            { name: 'JSON Formatter', path: '/json-formatter', icon: '📋' },
-            { name: 'CSV Parser', path: '/csv-parser', icon: '📊' },
-            { name: 'YAML Converter', path: '/yaml-converter', icon: '📝' },
+            { name: 'JSON Formatter', path: '/json-formatter', icon: '📋', description: '' },
+            { name: 'CSV Parser', path: '/csv-parser', icon: '📊', description: '' },
+            { name: 'YAML Converter', path: '/yaml-converter', icon: '📝', description: '' },
         ],
     },
     {
         category: 'Encoding',
         items: [
-            { name: 'Base64', path: '/base64', icon: '🔤' },
-            { name: 'URL Encoder', path: '/url-encoder', icon: '🔗' },
-            { name: 'Hash Generator', path: '/hash-generator', icon: '#️⃣' },
+            { name: 'Base64', path: '/base64', icon: '🔤', description: '' },
+            { name: 'URL Encoder', path: '/url-encoder', icon: '🔗', description: '' },
+            { name: 'Hash Generator', path: '/hash-generator', icon: '#️⃣', description: '' },
         ],
     },
     {
         category: 'Security',
         items: [
-            { name: 'Password Generator', path: '/password-generator', icon: '🔐' },
-            { name: 'UUID Generator', path: '/uuid-generator', icon: '🆔' },
+            { name: 'Password Generator', path: '/password-generator', icon: '🔐', description: '' },
+            { name: 'UUID Generator', path: '/uuid-generator', icon: '🆔', description: '' },
         ],
     },
 ]
@@ -80,7 +80,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             grouped[tool.category].push({
                 name: tool.name,
                 path: tool.path,
-                icon: tool.icon
+                icon: tool.icon,
+                description: tool.description
             })
         })
 

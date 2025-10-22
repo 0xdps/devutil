@@ -8,13 +8,9 @@ DevUtil is a web-based toolkit designed to help developers perform common daily 
 
 ## ✨ Features
 
-### 🧩 JSON Tools
+### 🔄 Data Converters
 
-- **JSON Formatter & Validator** - Format, validate, and beautify JSON
-- **JSON Minifier / Beautifier** - Optimize JSON size
-- **JSON to YAML Converter** - Convert JSON to YAML format
-- **YAML to JSON Converter** - Convert YAML to JSON format
-- **JSON to CSV Converter** - Transform JSON data to CSV
+- **Data Transform** - Convert between JSON, CSV, YAML, TOML, and XML formats
 - **JSON Diff** - Compare two JSON files
 - **JSON Path Evaluator** - Query JSON using JSONPath
 
@@ -51,10 +47,6 @@ DevUtil is a web-based toolkit designed to help developers perform common daily 
 
 ### 🧠 Data Tools
 
-- **CSV to JSON Converter** - Convert CSV to JSON
-- **JSON to CSV Converter** - Convert JSON to CSV
-- **XML to JSON Converter** - Transform XML to JSON
-- **JSON to XML Converter** - Transform JSON to XML
 - **Excel to JSON Parser** - Parse .xlsx files to JSON
 - **Data URI Generator** - Create data URIs
 - **Base32/Base58 Encoder** - Encode/decode Base32 and Base58
@@ -148,12 +140,11 @@ npm test
 
 - [x] Core project setup with React + TypeScript + Vite
 - [x] Implement basic UI layout with navigation
-- [x] JSON formatter utility
+- [x] Data Transform utility (JSON, CSV, YAML, TOML, XML converter)
 - [x] Base64 encoder/decoder
 
 ### Phase 2: Essential Tools (In Progress)
 
-- [ ] CSV parser & converter
 - [ ] URL encoder/decoder
 - [ ] Hash generator (MD5, SHA-1, SHA-256, SHA-512)
 - [ ] Password generator & strength tester
@@ -184,9 +175,6 @@ npm test
 
 ### Phase 5: Data Converters
 
-- [ ] JSON to YAML converter
-- [ ] JSON to CSV converter
-- [ ] XML to JSON converter
 - [ ] Excel to JSON parser
 - [ ] Data URI generator
 - [ ] Cron expression builder
