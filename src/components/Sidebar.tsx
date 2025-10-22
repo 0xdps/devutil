@@ -4,32 +4,87 @@ import Fuse from 'fuse.js'
 
 const tools = [
     {
-        category: 'Data Transform',
+        category: 'Data Converters',
         items: [
-            { name: 'Data Converter', path: '/data-transform', icon: '🔄', description: 'JSON, CSV, YAML, TOML, XML' },
+            { name: 'Data Transform', path: '/data-transform', icon: '🔄', description: 'JSON, CSV, YAML, TOML, XML' },
+            { name: 'JSON Diff', path: '/json-diff', icon: '🔍', description: '' },
+            { name: 'JSON Path Evaluator', path: '/json-path', icon: '🛤️', description: '' },
         ],
     },
     {
-        category: 'Text & Data',
+        category: 'Text & String Tools',
         items: [
-            { name: 'JSON Formatter', path: '/json-formatter', icon: '📋', description: '' },
-            { name: 'CSV Parser', path: '/csv-parser', icon: '📊', description: '' },
-            { name: 'YAML Converter', path: '/yaml-converter', icon: '📝', description: '' },
-        ],
-    },
-    {
-        category: 'Encoding',
-        items: [
-            { name: 'Base64', path: '/base64', icon: '🔤', description: '' },
-            { name: 'URL Encoder', path: '/url-encoder', icon: '🔗', description: '' },
-            { name: 'Hash Generator', path: '/hash-generator', icon: '#️⃣', description: '' },
-        ],
-    },
-    {
-        category: 'Security',
-        items: [
-            { name: 'Password Generator', path: '/password-generator', icon: '🔐', description: '' },
+            { name: 'Base64 Encoder/Decoder', path: '/base64', icon: '🔤', description: '' },
+            { name: 'URL Encoder/Decoder', path: '/url-encoder', icon: '🔗', description: '' },
+            { name: 'HTML Escape/Unescape', path: '/html-escape', icon: '🏷️', description: '' },
+            { name: 'String Case Converter', path: '/case-converter', icon: '🔡', description: '' },
             { name: 'UUID Generator', path: '/uuid-generator', icon: '🆔', description: '' },
+            { name: 'Lorem Ipsum Generator', path: '/lorem-ipsum', icon: '📝', description: '' },
+            { name: 'Word/Character/Line Counter', path: '/text-counter', icon: '�', description: '' },
+            { name: 'Text Cleaner', path: '/text-cleaner', icon: '🧹', description: '' },
+        ],
+    },
+    {
+        category: 'Encryption & Hashing',
+        items: [
+            { name: 'Hash Generator', path: '/hash-generator', icon: '#️⃣', description: '' },
+            { name: 'HMAC Generator', path: '/hmac-generator', icon: '🔐', description: '' },
+            { name: 'AES Encrypt/Decrypt', path: '/aes-encryption', icon: '�', description: '' },
+            { name: 'RSA Key Pair Generator', path: '/rsa-generator', icon: '🔑', description: '' },
+            { name: 'JWT Decoder', path: '/jwt-decoder', icon: '🎫', description: '' },
+            { name: 'Password Strength Tester', path: '/password-tester', icon: '💪', description: '' },
+            { name: 'Password Generator', path: '/password-generator', icon: '�', description: '' },
+        ],
+    },
+    {
+        category: 'Web Tools',
+        items: [
+            { name: 'HTTP Header Parser', path: '/http-header-parser', icon: '�', description: '' },
+            { name: 'User-Agent Decoder', path: '/user-agent-decoder', icon: '�️', description: '' },
+            { name: 'URL Parser & Builder', path: '/url-parser', icon: '🔗', description: '' },
+            { name: 'Query String Generator', path: '/query-string', icon: '❓', description: '' },
+            { name: 'Meta Tag Generator', path: '/meta-tag-generator', icon: '🏷️', description: '' },
+            { name: 'Robots.txt Generator', path: '/robots-generator', icon: '🤖', description: '' },
+            { name: 'Sitemap.xml Generator', path: '/sitemap-generator', icon: '🗺️', description: '' },
+        ],
+    },
+    {
+        category: 'Data Tools',
+        items: [
+            { name: 'Excel to JSON Parser', path: '/excel-to-json', icon: '📊', description: '' },
+            { name: 'Data URI Generator', path: '/data-uri-generator', icon: '📦', description: '' },
+            { name: 'Base32/Base58 Encoder', path: '/base32-base58', icon: '🔢', description: '' },
+        ],
+    },
+    {
+        category: 'Code Formatters & Converters',
+        items: [
+            { name: 'HTML/CSS/JS Beautifier', path: '/code-beautifier', icon: '✨', description: '' },
+            { name: 'SQL Formatter', path: '/sql-formatter', icon: '🗄️', description: '' },
+            { name: 'XML Formatter', path: '/xml-formatter', icon: '📄', description: '' },
+            { name: 'HTML/CSS/JS Minifier', path: '/code-minifier', icon: '📦', description: '' },
+            { name: 'Regex Tester & Builder', path: '/regex-tester', icon: '🔎', description: '' },
+            { name: 'Code Diff Viewer', path: '/code-diff', icon: '🔀', description: '' },
+        ],
+    },
+    {
+        category: 'Utility Generators',
+        items: [
+            { name: 'UUID/GUID Generator', path: '/uuid-guid-generator', icon: '🆔', description: '' },
+            { name: 'Random String/Number Generator', path: '/random-generator', icon: '🎲', description: '' },
+            { name: 'Color Picker', path: '/color-picker', icon: '🎨', description: '' },
+            { name: 'Unix Timestamp Converter', path: '/timestamp-converter', icon: '⏰', description: '' },
+            { name: 'QR Code Generator/Decoder', path: '/qr-code', icon: '📱', description: '' },
+            { name: 'Cron Expression Generator', path: '/cron-generator', icon: '⏱️', description: '' },
+        ],
+    },
+    {
+        category: 'Developer Playground',
+        items: [
+            { name: 'JavaScript Runner', path: '/js-runner', icon: '🟨', description: '' },
+            { name: 'Markdown Previewer', path: '/markdown-previewer', icon: '📝', description: '' },
+            { name: 'HTML Previewer', path: '/html-previewer', icon: '🌐', description: '' },
+            { name: 'Regex Playground', path: '/regex-playground', icon: '�', description: '' },
         ],
     },
 ]
@@ -105,14 +160,14 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             <aside
                 className={`
                     fixed md:relative top-0 left-0 z-50 md:z-0
-                    w-64 h-screen md:h-auto md:min-h-[calc(100vh-4rem)]
+                    w-64 h-screen md:h-[calc(100vh-4rem)]
                     bg-white dark:bg-gray-800 shadow-lg
-                    overflow-y-auto
                     transition-transform duration-300 ease-in-out
                     ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+                    flex flex-col
                 `}
             >
-                <div className="p-4">
+                <div className="flex-shrink-0 p-4 border-b border-gray-200 dark:border-gray-700">
                     {/* Mobile close button */}
                     <button
                         onClick={onClose}
@@ -125,7 +180,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                     </button>
 
                     {/* Search input */}
-                    <div className="mb-6 mt-12 md:mt-0">
+                    <div className="mt-12 md:mt-0">
                         <div className="relative">
                             <input
                                 type="text"
@@ -154,7 +209,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                             )}
                         </div>
                     </div>
+                </div>
 
+                {/* Scrollable content area */}
+                <div className="flex-1 overflow-y-auto p-4">
                     <nav className="space-y-6">
                 {filteredTools.map((category) => (
                     <div key={category.category}>
