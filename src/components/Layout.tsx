@@ -10,10 +10,11 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
-    // Open sidebar by default on desktop
+    // Open sidebar by default on desktop after hydration
     useEffect(() => {
         const checkScreenSize = () => {
-            if (window.innerWidth >= 768) {
+            // Check if window is available (client-side only)
+            if (typeof window !== 'undefined' && window.innerWidth >= 768) {
                 setIsSidebarOpen(true)
             }
         }

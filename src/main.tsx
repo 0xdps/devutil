@@ -6,16 +6,14 @@ import './index.css'
 
 const rootElement = document.getElementById('root')!
 
-// Check if the app was pre-rendered by react-snap
+// Check if the app was pre-rendered
 if (rootElement.hasChildNodes()) {
-    // Hydrate the pre-rendered content
+    // Hydrate the pre-rendered content (no StrictMode for hydration)
     ReactDOM.hydrateRoot(
         rootElement,
-        <React.StrictMode>
-            <HelmetProvider>
-                <App />
-            </HelmetProvider>
-        </React.StrictMode>
+        <HelmetProvider>
+            <App />
+        </HelmetProvider>
     )
 } else {
     // Normal render for development

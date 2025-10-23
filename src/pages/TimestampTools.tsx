@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast'
 import cronstrue from 'cronstrue'
 import SEO from '../components/SEO'
@@ -6,9 +6,14 @@ import { toolsMetadata } from '../config/seoConfig'
 
 export default function TimestampTools() {
   const meta = toolsMetadata.timestampTools
-  const [timestamp, setTimestamp] = useState(Math.floor(Date.now() / 1000))
+  const [timestamp, setTimestamp] = useState(0) // Initialize with 0 to match server
   const [cronExpression, setCronExpression] = useState('0 0 * * *')
   const [cronDescription, setCronDescription] = useState('')
+
+  // Set current timestamp after hydration to avoid mismatch
+  useEffect(() => {
+    setTimestamp(Math.floor(Date.now() / 1000))
+  }, [])
 
   const convertToDate = () => {
     const date = new Date(timestamp * 1000)
