@@ -21,7 +21,6 @@ export default function Footer() {
           >
             0xdps
           </a>
-          .
         </p>
       </div>
     </footer>
