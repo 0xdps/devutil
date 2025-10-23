@@ -546,7 +546,7 @@ Test on:
 
 - 💬 [GitHub Discussions](https://github.com/0xdps/devutil/discussions) - Ask questions
 - 🐛 [GitHub Issues](https://github.com/0xdps/devutil/issues) - Report bugs
-- 📧 Email: devendra@example.com (if applicable)
+- 📧 Email: dps.manit@gmail.com (if applicable)
 
 ### Code of Conduct
 

@@ -14,7 +14,7 @@ export default function Footer() {
         <p className="text-center text-sm text-gray-600 dark:text-gray-400">
           © {currentYear} <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> — All rights reserved. Powered by{' '}
           <a
-            href="https://devendrapratap.xyz"
+            href="https://0xdps.xyz"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"

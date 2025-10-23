@@ -1376,7 +1376,7 @@ Use tools:
 
 ### Contact
 
-- **Email**: devendrapratapsinghcs@gmail.com
+- **Email**: dps.manit@gmail.com
 - **GitHub**: [@0xdps](https://github.com/0xdps)
 
 ---
