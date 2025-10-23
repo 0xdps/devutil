@@ -19,7 +19,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
           >
-            Devendra Pratap Singh
+            0xdps
           </a>
           .
         </p>
