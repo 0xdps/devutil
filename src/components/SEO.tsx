@@ -10,6 +10,7 @@ interface SEOProps {
   toolName?: string
   toolDescription?: string
   toolUrl?: string
+  noindex?: boolean
 }
 
 export default function SEO({
@@ -21,7 +22,8 @@ export default function SEO({
   image = '/og-image.png',
   toolName,
   toolDescription,
-  toolUrl
+  toolUrl,
+  noindex = false
 }: SEOProps) {
   const siteUrl = 'https://devutil.xyz' // Update with your actual domain
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl
@@ -135,7 +137,7 @@ export default function SEO({
       <meta name="twitter:image" content={fullImage} />
 
       {/* Additional Meta Tags */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       <meta name="author" content="devutil.xyz" />

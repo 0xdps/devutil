@@ -21,6 +21,7 @@ import MarkdownPreviewer from './pages/MarkdownPreviewer'
 import HTMLPlayground from './pages/HTMLPlayground'
 import JavaScriptRunner from './pages/JavaScriptRunner'
 import RegexPlayground from './pages/RegexPlayground'
+import NotFound from './pages/NotFound'
 
 function App() {
     return (
@@ -47,6 +48,8 @@ function App() {
                     <Route path="/html-playground" element={<HTMLPlayground />} />
                     <Route path="/js-runner" element={<JavaScriptRunner />} />
                     <Route path="/regex-playground" element={<RegexPlayground />} />
+                    {/* 404 - Must be last */}
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Layout>
             <Toaster position="top-right" />
