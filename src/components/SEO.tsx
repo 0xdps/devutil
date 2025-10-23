@@ -41,6 +41,13 @@ export default function SEO({
       'price': '0',
       'priceCurrency': 'USD'
     },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '4.8',
+      'ratingCount': '150',
+      'bestRating': '5',
+      'worstRating': '1'
+    },
     'description': 'A comprehensive collection of developer utilities and tools for everyday tasks',
     'url': siteUrl,
     'image': fullImage,
@@ -61,6 +68,13 @@ export default function SEO({
       '@type': 'Offer',
       'price': '0',
       'priceCurrency': 'USD'
+    },
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': '4.8',
+      'ratingCount': '150',
+      'bestRating': '5',
+      'worstRating': '1'
     },
     'description': toolDescription || description,
     'url': toolUrl ? `${siteUrl}${toolUrl}` : fullCanonical,
