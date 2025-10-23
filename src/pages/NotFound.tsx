@@ -84,7 +84,7 @@ export default function NotFound() {
                     <p className="mt-8 text-sm text-gray-500 dark:text-gray-500">
                         If you believe this is a mistake, please{' '}
                         <a
-                            href="https://github.com/devendrapratap02/devutil/issues"
+                            href="https://github.com/0xdps/devutil/issues"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-primary-600 dark:text-primary-400 hover:underline"

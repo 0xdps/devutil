@@ -544,8 +544,8 @@ Test on:
 
 ### Getting Help
 
-- 💬 [GitHub Discussions](https://github.com/devendrapratap02/devutil/discussions) - Ask questions
-- 🐛 [GitHub Issues](https://github.com/devendrapratap02/devutil/issues) - Report bugs
+- 💬 [GitHub Discussions](https://github.com/0xdps/devutil/discussions) - Ask questions
+- 🐛 [GitHub Issues](https://github.com/0xdps/devutil/issues) - Report bugs
 - 📧 Email: devendra@example.com (if applicable)
 
 ### Code of Conduct

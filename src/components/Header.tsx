@@ -88,7 +88,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
                                 Support
                             </button>
                             <a
-                                href="https://github.com/devendrapratap02/devutil"
+                                href="https://github.com/0xdps/devutil"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"

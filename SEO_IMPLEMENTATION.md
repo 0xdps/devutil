@@ -237,7 +237,7 @@ Optimized for Twitter previews:
 - `twitter:title` - Page title
 - `twitter:description` - Page description
 - `twitter:image` - Preview image
-- `twitter:creator` - @devendrapratap02 (optional)
+- `twitter:creator` - @0xdps (optional)
 
 ### 3. SEO Best Practices
 

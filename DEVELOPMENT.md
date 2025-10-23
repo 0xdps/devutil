@@ -31,7 +31,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/devendrapratap02/devutil.git
+git clone https://github.com/0xdps/devutil.git
 cd devutil
 
 # Install dependencies
@@ -1363,7 +1363,7 @@ Use tools:
 
 ### Community
 
-- **Issues**: [GitHub Issues](https://github.com/devendrapratap02/devutil/issues)
+- **Issues**: [GitHub Issues](https://github.com/0xdps/devutil/issues)
 
   - Search existing issues before creating new ones
   - Provide detailed reproduction steps
@@ -1377,7 +1377,7 @@ Use tools:
 ### Contact
 
 - **Email**: devendrapratapsinghcs@gmail.com
-- **GitHub**: [@devendrapratap02](https://github.com/devendrapratap02)
+- **GitHub**: [@0xdps](https://github.com/0xdps)
 
 ---
 

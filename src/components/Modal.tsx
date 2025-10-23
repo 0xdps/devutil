@@ -108,7 +108,7 @@ export function PrivacyModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
         <p className="text-gray-700 dark:text-gray-300">
           This project is open source. You can review the code on{' '}
           <a
-            href="https://github.com/devendrapratap02/devutil"
+            href="https://github.com/0xdps/devutil"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary-600 dark:text-primary-400 hover:underline"
@@ -149,7 +149,7 @@ export function SupportModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Found a bug or have a feature request? Open an issue on our{' '}
           <a
-            href="https://github.com/devendrapratap02/devutil/issues"
+            href="https://github.com/0xdps/devutil/issues"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary-600 dark:text-primary-400 hover:underline"
@@ -165,7 +165,7 @@ export function SupportModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           If you find <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> useful, consider giving it a star on{' '}
           <a
-            href="https://github.com/devendrapratap02/devutil"
+            href="https://github.com/0xdps/devutil"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary-600 dark:text-primary-400 hover:underline"
@@ -188,7 +188,7 @@ export function SupportModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
         <p className="text-gray-700 dark:text-gray-300">
           Have questions or suggestions? Reach out via{' '}
           <a
-            href="https://github.com/devendrapratap02"
+            href="https://github.com/0xdps"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary-600 dark:text-primary-400 hover:underline"
