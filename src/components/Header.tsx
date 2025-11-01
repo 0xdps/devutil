@@ -51,24 +51,24 @@ export default function Header({ onMenuClick }: HeaderProps) {
 
     return (
         <>
-            <header className="bg-white dark:bg-gray-800 shadow-sm w-full sticky top-0 z-10 border-b border-gray-200 dark:border-gray-700">
+            <header className="bg-dark-card shadow-soft w-full sticky top-0 z-10 border-b border-dark-border">
                 <div className="pl-4 pr-4 sm:pr-6 lg:pr-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex items-center gap-3">
                             {/* Hamburger menu button */}
                             <button
                                 onClick={onMenuClick}
-                                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                className="p-2 rounded-lg hover:bg-dark-100 transition-colors"
                                 aria-label="Toggle menu"
                             >
-                                <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </button>
 
                             <Link to="/" className="flex items-center gap-2">
                                 <Logo className="w-8 h-8" />
-                                <h1 className="text-xl sm:text-2xl font-bold text-primary-600 dark:text-primary-400">
+                                <h1 className="text-xl sm:text-2xl font-bold text-primary-400">
                                     Developer Utilities Tool
                                 </h1>
                             </Link>
@@ -77,13 +77,13 @@ export default function Header({ onMenuClick }: HeaderProps) {
                         <nav className="flex items-center space-x-2 sm:space-x-4">
                             <button
                                 onClick={handlePrivacyOpen}
-                                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                className="text-sm sm:text-base text-gray-300 hover:text-primary-400 transition-colors"
                             >
                                 Privacy
                             </button>
                             <button
                                 onClick={handleSupportOpen}
-                                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                className="text-sm sm:text-base text-gray-300 hover:text-primary-400 transition-colors"
                             >
                                 Support
                             </button>
@@ -91,7 +91,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
                                 href="https://github.com/0xdps/devutil"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                                className="text-sm sm:text-base text-gray-300 hover:text-primary-400 transition-colors"
                             >
                                 GitHub
                             </a>

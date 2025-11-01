@@ -9,15 +9,15 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+    <footer className="bg-dark-card border-t border-dark-border mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          © {currentYear} <span className="text-primary-600 dark:text-primary-400 font-semibold">Developer Utilities Tool</span> — All rights reserved. Powered by{' '}
+        <p className="text-sm text-gray-400 text-center">
+          © {currentYear} <span className="text-primary-400 font-semibold">Developer Utilities Tool</span> — All rights reserved. Powered by{' '}
           <a
             href="https://0xdps.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+            className="text-primary-400 hover:text-primary-300 transition-colors"
           >
             0xdps
           </a>
