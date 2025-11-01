@@ -75,7 +75,7 @@ export function PrivacyModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
           Your Privacy Matters
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> is committed to protecting your privacy. All tools on this platform run entirely in your browser.
+          <span className="text-primary-600 dark:text-primary-400 font-semibold">Developer Utilities Tool</span> is committed to protecting your privacy. All tools on this platform run entirely in your browser.
         </p>
 
         <h4 className="text-md font-semibold text-gray-900 dark:text-white mb-2">
@@ -127,10 +127,10 @@ export function SupportModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
     <Modal isOpen={isOpen} onClose={onClose} title="Support & Contribution">
       <div className="prose dark:prose-invert max-w-none">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-          Help Make <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> Better
+          Help Make <span className="text-primary-600 dark:text-primary-400 font-semibold">Developer Utilities Tool</span> Better
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> is an open-source project built with ❤️ for the developer community. Your support and contributions are welcome!
+          <span className="text-primary-600 dark:text-primary-400 font-semibold">Developer Utilities Tool</span> is an open-source project built with ❤️ for the developer community. Your support and contributions are welcome!
         </p>
 
         <h4 className="text-md font-semibold text-gray-900 dark:text-white mb-2">
@@ -163,7 +163,7 @@ export function SupportModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
           ⭐ Star on GitHub
         </h4>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          If you find <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> useful, consider giving it a star on{' '}
+          If you find <span className="text-primary-600 dark:text-primary-400 font-semibold">Developer Utilities Tool</span> useful, consider giving it a star on{' '}
           <a
             href="https://github.com/0xdps/devutil"
             target="_blank"
@@ -179,7 +179,7 @@ export function SupportModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
           💬 Spread the Word
         </h4>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Share <span className="text-primary-600 dark:text-primary-400 font-semibold">devutil.xyz</span> with your colleagues and on social media to help more developers discover these free tools.
+          Share <span className="text-primary-600 dark:text-primary-400 font-semibold">Developer Utilities Tool</span> with your colleagues and on social media to help more developers discover these free tools.
         </p>
 
         <h4 className="text-md font-semibold text-gray-900 dark:text-white mb-2">

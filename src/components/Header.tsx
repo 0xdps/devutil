@@ -69,7 +69,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
                             <Link to="/" className="flex items-center gap-2">
                                 <Logo className="w-8 h-8" />
                                 <h1 className="text-xl sm:text-2xl font-bold text-primary-600 dark:text-primary-400">
-                                    devutil.xyz
+                                    Developer Utilities Tool
                                 </h1>
                             </Link>
                         </div>

@@ -33,7 +33,7 @@ export default function SEO({
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'devutil.xyz',
+    'name': 'Developer Utilities Tool',
     'applicationCategory': 'DeveloperApplication',
     'operatingSystem': 'Web Browser',
     'offers': {
@@ -53,7 +53,7 @@ export default function SEO({
     'image': fullImage,
     'author': {
       '@type': 'Organization',
-      'name': 'devutil.xyz'
+      'name': 'Developer Utilities Tool'
     }
   }
 
@@ -110,10 +110,10 @@ export default function SEO({
     'mainEntity': [
       {
         '@type': 'Question',
-        'name': 'Is devutil.xyz free to use?',
+        'name': 'Is Developer Utilities Tool free to use?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Yes, all tools on devutil.xyz are completely free to use with no registration required.'
+          'text': 'Yes, all tools on Developer Utilities Tool are completely free to use with no registration required.'
         }
       },
       {
@@ -141,7 +141,7 @@ export default function SEO({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullImage} />
-      <meta property="og:site_name" content="devutil.xyz" />
+      <meta property="og:site_name" content="Developer Utilities Tool" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -154,13 +154,13 @@ export default function SEO({
       <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
-      <meta name="author" content="devutil.xyz" />
+      <meta name="author" content="Developer Utilities Tool" />
 
       {/* Mobile Meta Tags */}
       <meta name="theme-color" content="#4F46E5" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="devutil.xyz" />
+      <meta name="apple-mobile-web-app-title" content="Developer Utilities Tool" />
 
       {/* Structured Data */}
       <script type="application/ld+json">

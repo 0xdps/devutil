@@ -1,10 +1,10 @@
-# DevUtil - Developer Utilities Toolkit
+# Developer Utilities Tool - Developer Utilities Toolkit
 
 > A comprehensive collection of developer utilities for everyday tasks - all running locally in your browser
 
 ## 🚀 Overview
 
-DevUtil is a privacy-focused web-based toolkit designed to help developers perform common daily tasks efficiently. All tools run entirely in your browser - no data is sent to any server, ensuring complete privacy and security for your sensitive information.
+Developer Utilities Tool is a privacy-focused web-based toolkit designed to help developers perform common daily tasks efficiently. All tools run entirely in your browser - no data is sent to any server, ensuring complete privacy and security for your sensitive information.
 
 **Live Site**: [devutil.xyz](https://devutil.xyz) (coming soon)
 

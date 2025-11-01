@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO'
+import { Helmet } from 'react-helmet-async'
 
 export default function NotFound() {
     const popularTools = [
@@ -13,12 +13,11 @@ export default function NotFound() {
 
     return (
         <>
-            <SEO
-                title="404 - Page Not Found | devutil.xyz"
-                description="The page you're looking for doesn't exist. Explore our collection of free developer utilities and tools."
-                canonical="https://devutil.xyz/"
-                noindex={true}
-            />
+            <Helmet>
+                <title>404 - Page Not Found | Developer Utilities Tool</title>
+                <meta name="description" content="The page you're looking for doesn't exist." />
+                <link rel="canonical" href="https://devutil.xyz/" />
+            </Helmet>
 
             <div className="min-h-[80vh] flex items-center justify-center px-6 py-12">
                 <div className="max-w-2xl w-full text-center">
