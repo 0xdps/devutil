@@ -2,6 +2,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import SEO from '../components/SEO'
 import { toolsMetadata } from '../config/seoConfig'
+import CustomSelect from '../components/CustomSelect'
 
 export default function CodeFormatter() {
   const meta = toolsMetadata.codeFormatter
@@ -190,16 +191,18 @@ export default function CodeFormatter() {
         <h1 className="text-3xl font-bold mb-6">Code Formatter</h1>
       
       <div className="mb-4">
-        <select
-          value={language}
-          onChange={(e) => setLanguage(e.target.value as 'json' | 'html' | 'css' | 'javascript')}
-          className="px-4 py-2 bg-white dark:bg-gray-800 border rounded-lg"
-        >
-          <option value="json">JSON</option>
-          <option value="javascript">JavaScript</option>
-          <option value="html">HTML</option>
-          <option value="css">CSS</option>
-        </select>
+        <div className="w-64">
+          <CustomSelect
+            value={language}
+            onChange={(val) => setLanguage(val)}
+            options={[
+              { value: 'json', label: 'JSON', icon: '📋' },
+              { value: 'javascript', label: 'JavaScript', icon: '🟨' },
+              { value: 'html', label: 'HTML', icon: '📄' },
+              { value: 'css', label: 'CSS', icon: '🎨' },
+            ]}
+          />
+        </div>
       </div>
 
       <textarea

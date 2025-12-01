@@ -126,10 +126,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 className={`
                     fixed md:sticky top-0 left-0 z-50 md:z-0
                     w-64 h-screen md:h-full
-                    bg-dark-card border-r border-dark-border
-                    transition-transform duration-300 ease-in-out
-                    ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-                    md:translate-x-0
+                    bg-dark-card border-r border-dark-border overflow-hidden
+                    transition-transform transition-[width] duration-300 ease-in-out
+                    ${isOpen
+                        ? 'translate-x-0 md:translate-x-0 md:w-64 md:opacity-100 md:pointer-events-auto'
+                        : '-translate-x-full md:-translate-x-full md:w-0 md:opacity-0 md:pointer-events-none'}
                     flex flex-col flex-shrink-0
                 `}
             >

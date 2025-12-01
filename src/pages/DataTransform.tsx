@@ -6,6 +6,7 @@ import { parse as parseTOML, stringify as stringifyTOML } from 'smol-toml'
 import { XMLParser, XMLBuilder } from 'fast-xml-parser'
 import SEO from '../components/SEO'
 import { toolsMetadata } from '../config/seoConfig'
+import CustomSelect from '../components/CustomSelect'
 
 type DataFormat = 'json' | 'csv' | 'yaml' | 'toml' | 'xml'
 
@@ -255,17 +256,11 @@ export default function DataTransform() {
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             From
           </label>
-          <select
+          <CustomSelect<DataFormat>
             value={fromFormat}
-            onChange={(e) => setFromFormat(e.target.value as DataFormat)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          >
-            {formats.map((format) => (
-              <option key={format.value} value={format.value}>
-                {format.icon} {format.label}
-              </option>
-            ))}
-          </select>
+            onChange={(val) => setFromFormat(val)}
+            options={formats}
+          />
         </div>
 
         <button
@@ -280,17 +275,11 @@ export default function DataTransform() {
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             To
           </label>
-          <select
+          <CustomSelect<DataFormat>
             value={toFormat}
-            onChange={(e) => setToFormat(e.target.value as DataFormat)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          >
-            {formats.map((format) => (
-              <option key={format.value} value={format.value}>
-                {format.icon} {format.label}
-              </option>
-            ))}
-          </select>
+            onChange={(val) => setToFormat(val)}
+            options={formats}
+          />
         </div>
       </div>
 
