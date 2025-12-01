@@ -128,7 +128,12 @@ export default function JSONTools() {
     try {
       const left = safeParseJson(leftJson)
       const right = safeParseJson(rightJson)
-      const changes = diffJson(left, right)
+      // diffJson expects string | object, ensure parsed values are objects
+      if (typeof left !== 'object' || left === null || typeof right !== 'object' || right === null) {
+        toast.error('Both JSON inputs must be objects or arrays')
+        return
+      }
+      const changes = diffJson(left as object, right as object)
       setDiffResult(changes)
       toast.success('Diff generated')
     } catch (err) {
