@@ -11,8 +11,7 @@ const TextUtilities = lazy(() => import('./pages/TextUtilities'))
 const GeneratorToolkit = lazy(() => import('./pages/GeneratorToolkit'))
 const HashVerify = lazy(() => import('./pages/HashVerify'))
 const JWTDecoder = lazy(() => import('./pages/JWTDecoder'))
-const CodeFormatter = lazy(() => import('./pages/CodeFormatter'))
-const JSONTools = lazy(() => import('./pages/JSONTools'))
+const CodeAndJSONTools = lazy(() => import('./pages/CodeAndJSONTools'))
 const RegexTester = lazy(() => import('./pages/RegexTester'))
 const CodeDiff = lazy(() => import('./pages/CodeDiff'))
 const ColorPicker = lazy(() => import('./pages/ColorPicker'))
@@ -48,8 +47,9 @@ function App() {
                         <Route path="/generators" element={<GeneratorToolkit />} />
                         <Route path="/hash-verify" element={<HashVerify />} />
                         <Route path="/jwt-decoder" element={<JWTDecoder />} />
-                        <Route path="/code-formatter" element={<CodeFormatter />} />
-                        <Route path="/json-tools" element={<JSONTools />} />
+                        <Route path="/code-formatter" element={<CodeAndJSONTools />} />
+                        <Route path="/json-tools" element={<CodeAndJSONTools />} />
+                        <Route path="/code-json-tools" element={<CodeAndJSONTools />} />
                         <Route path="/regex-tester" element={<RegexTester />} />
                         <Route path="/code-diff" element={<CodeDiff />} />
                         <Route path="/color-picker" element={<ColorPicker />} />

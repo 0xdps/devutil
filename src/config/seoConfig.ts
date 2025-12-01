@@ -71,21 +71,29 @@ export const toolsMetadata: Record<string, ToolMeta> = {
         toolName: 'JWT Decoder',
         toolDescription: 'Decode and inspect JWT tokens with timestamp analysis using Developer Utilities Tool - privacy-focused, free, and instant.'
     },
-    codeFormatter: {
-        title: 'Code Formatter | Beautify JavaScript, JSON, HTML, CSS Online - Developer Utilities Tool',
-        description: 'Format and beautify code online with Developer Utilities Tool. Supports JavaScript, JSON, HTML, CSS, and more. Free, privacy-first code formatter with syntax highlighting and indentation options.',
-        keywords: ['code formatter', 'beautify code', 'javascript formatter', 'json formatter', 'html formatter', 'css formatter', 'code beautifier', 'Developer Utilities Tool', 'online code formatter', 'privacy-first code tools'],
+    codeAndJsonTools: {
+        title: 'Code & JSON Tools | Code Formatter, JSON Validator, JSONPath & Diff - Developer Utilities Tool',
+        description: 'Format code (HTML, CSS, JavaScript) and manipulate JSON (format, validate, JSONPath query, diff) in one unified workspace. Free, privacy-first developer tools.',
+        keywords: ['code formatter', 'json tools', 'beautify code', 'javascript formatter', 'json formatter', 'html formatter', 'css formatter', 'json validator', 'jsonpath', 'json diff', 'code beautifier', 'Developer Utilities Tool', 'online code formatter', 'privacy-first code tools'],
         canonical: '/code-formatter',
-        toolName: 'Code Formatter',
-        toolDescription: 'Format and beautify code with syntax highlighting using Developer Utilities Tool - privacy-focused, free, and instant.'
+        toolName: 'Code & JSON Tools',
+        toolDescription: 'Format code and manipulate JSON in a unified workspace with Developer Utilities Tool - privacy-focused, free, and instant.'
+    },
+    codeFormatter: {
+        title: 'Code & JSON Tools | Code Formatter, JSON Validator, JSONPath & Diff - Developer Utilities Tool',
+        description: 'Format code (HTML, CSS, JavaScript) and manipulate JSON (format, validate, JSONPath query, diff) in one unified workspace. Free, privacy-first developer tools.',
+        keywords: ['code formatter', 'json tools', 'beautify code', 'javascript formatter', 'json formatter', 'html formatter', 'css formatter', 'json validator', 'jsonpath', 'json diff', 'code beautifier', 'Developer Utilities Tool', 'online code formatter', 'privacy-first code tools'],
+        canonical: '/code-formatter',
+        toolName: 'Code & JSON Tools',
+        toolDescription: 'Format code and manipulate JSON in a unified workspace with Developer Utilities Tool - privacy-focused, free, and instant.'
     },
     jsonTools: {
-        title: 'JSON Tools | JSON Validator, Formatter & Editor Online - Developer Utilities Tool',
-        description: 'Validate, format, and edit JSON online with Developer Utilities Tool. Real-time JSON syntax validation with error highlighting. Free, privacy-first JSON tools for developers.',
-        keywords: ['json validator', 'json formatter', 'json editor', 'json parser', 'json tools', 'validate json', 'format json', 'Developer Utilities Tool', 'online json tools', 'privacy-first json validator'],
+        title: 'Code & JSON Tools | Code Formatter, JSON Validator, JSONPath & Diff - Developer Utilities Tool',
+        description: 'Format code (HTML, CSS, JavaScript) and manipulate JSON (format, validate, JSONPath query, diff) in one unified workspace. Free, privacy-first developer tools.',
+        keywords: ['code formatter', 'json tools', 'beautify code', 'javascript formatter', 'json formatter', 'html formatter', 'css formatter', 'json validator', 'jsonpath', 'json diff', 'code beautifier', 'Developer Utilities Tool', 'online code formatter', 'privacy-first code tools'],
         canonical: '/json-tools',
-        toolName: 'JSON Tools',
-        toolDescription: 'Validate, format, and manipulate JSON data with Developer Utilities Tool - privacy-focused, free, and instant.'
+        toolName: 'Code & JSON Tools',
+        toolDescription: 'Format code and manipulate JSON in a unified workspace with Developer Utilities Tool - privacy-focused, free, and instant.'
     },
     regexTester: {
         title: 'Regex Tester | Test Regular Expressions Online | RegEx Tool - Developer Utilities Tool',

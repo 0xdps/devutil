@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import toast from 'react-hot-toast'
 import SEO from '../components/SEO'
 import { toolsMetadata } from '../config/seoConfig'
 
+const DEFAULT_JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30'
+
 export default function JWTDecoder() {
   const meta = toolsMetadata.jwtDecoder
   
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState(DEFAULT_JWT)
   const [decoded, setDecoded] = useState<{
     header: Record<string, unknown>
     payload: Record<string, unknown>
@@ -14,6 +16,7 @@ export default function JWTDecoder() {
   } | null>(null)
   const [showTimestamps, setShowTimestamps] = useState(true)
   const [viewMode, setViewMode] = useState<'json' | 'table'>('json')
+  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const formatTimestamp = (timestamp: number): string => {
     try {
@@ -82,16 +85,22 @@ export default function JWTDecoder() {
     return labels[key] || key
   }
 
-  const decodeJWT = () => {
+  const decodeJWT = (showToast = true) => {
     if (!token.trim()) {
-      toast.error('Please enter a JWT token')
+      if (showToast) {
+        toast.error('Please enter a JWT token')
+      }
+      setDecoded(null)
       return
     }
 
     try {
-      const parts = token.split('.')
+      const parts = token.trim().split('.')
       if (parts.length !== 3) {
-        toast.error('Invalid JWT format')
+        if (showToast) {
+          toast.error('Invalid JWT format')
+        }
+        setDecoded(null)
         return
       }
 
@@ -100,11 +109,34 @@ export default function JWTDecoder() {
       const signature = parts[2]
 
       setDecoded({ header, payload, signature })
-      toast.success('JWT decoded successfully')
+      if (showToast) {
+        toast.success('JWT decoded successfully')
+      }
     } catch (error) {
-      toast.error('Failed to decode JWT')
+      if (showToast) {
+        toast.error('Failed to decode JWT')
+      }
+      setDecoded(null)
     }
   }
+
+  // Auto-decode on mount with default token
+  useEffect(() => {
+    if (token.trim()) {
+      try {
+        const parts = token.trim().split('.')
+        if (parts.length === 3) {
+          const header = JSON.parse(atob(parts[0]))
+          const payload = JSON.parse(atob(parts[1]))
+          const signature = parts[2]
+          setDecoded({ header, payload, signature })
+        }
+      } catch {
+        // Silently fail on mount
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // Only run on mount
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -143,12 +175,41 @@ export default function JWTDecoder() {
           </label>
           <textarea
             value={token}
-            onChange={(e) => setToken(e.target.value)}
+            onChange={(e) => {
+              const newToken = e.target.value
+              setToken(newToken)
+              
+              // Clear previous timeout
+              if (debounceTimeoutRef.current) {
+                clearTimeout(debounceTimeoutRef.current)
+              }
+              
+              // Auto-decode when token changes (debounced)
+              debounceTimeoutRef.current = setTimeout(() => {
+                if (newToken.trim()) {
+                  const parts = newToken.trim().split('.')
+                  if (parts.length === 3) {
+                    try {
+                      const header = JSON.parse(atob(parts[0]))
+                      const payload = JSON.parse(atob(parts[1]))
+                      const signature = parts[2]
+                      setDecoded({ header, payload, signature })
+                    } catch {
+                      setDecoded(null)
+                    }
+                  } else {
+                    setDecoded(null)
+                  }
+                } else {
+                  setDecoded(null)
+                }
+              }, 300) // Debounce for 300ms
+            }}
             placeholder="Paste your JWT token here..."
             className="w-full h-32 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 resize-none font-mono text-sm"
           />
           <button
-            onClick={decodeJWT}
+            onClick={() => decodeJWT()}
             className="mt-4 w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium"
           >
             Decode JWT
