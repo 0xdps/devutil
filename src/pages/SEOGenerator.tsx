@@ -102,6 +102,7 @@ export default function SEOGenerator() {
     }
 
     let output = `<?xml version="1.0" encoding="UTF-8"?>\n`
+    output += `<?xml-stylesheet type="text/xsl" href="https://www.google.com/schemas/sitemap/0.9/sitemap.xsl"?>\n`
     output += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
     
     urls.forEach(url => {

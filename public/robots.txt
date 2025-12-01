@@ -1,9 +1,9 @@
-# robots.txt for devutil.xyz
+# robots.txt for devutil.dps.codes
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://devutil.xyz/sitemap.xml
+Sitemap: https://devutil.dps.codes/sitemap.xml
 
 # Crawl-delay for bots
 Crawl-delay: 1

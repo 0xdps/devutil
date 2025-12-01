@@ -25,7 +25,7 @@ export default function SEO({
   toolUrl,
   noindex = false
 }: SEOProps) {
-  const siteUrl = 'https://devutil.xyz' // Update with your actual domain
+  const siteUrl = 'https://devutil.dps.codes' // Update with your actual domain
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl
   const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`
 

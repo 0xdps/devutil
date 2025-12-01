@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitemap - Developer Utilities Tool</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .content {
+        padding: 2rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat-card {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .stat-card .number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .stat-card .label {
+        color: #666;
+        margin-top: 0.5rem;
+      }
+
+      .category {
+        margin-bottom: 2.5rem;
+      }
+
+      .category-title {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #667eea;
+      }
+
+      .url-list {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .url-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 6px;
+        transition: all 0.2s;
+        border-left: 4px solid transparent;
+      }
+
+      .url-item:hover {
+        background: #e9ecef;
+        border-left-color: #667eea;
+        transform: translateX(4px);
+      }
+
+      .url-item a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+        flex: 1;
+      }
+
+      .url-item a:hover {
+        text-decoration: underline;
+      }
+
+      .url-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.875rem;
+        color: #666;
+      }
+
+      .priority {
+        background: #667eea;
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      .footer {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #dee2e6;
+      }
+
+      .footer a {
+        color: #667eea;
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 1.75rem;
+        }
+
+        .url-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .url-meta {
+          margin-top: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🗺️ Sitemap</h1>
+        <p>Developer Utilities Tool - All Available Tools</p>
+      </div>
+
+      <div class="content">
+        <div class="stats">
+          <div class="stat-card">
+            <div class="number">17</div>
+            <div class="label">Total Tools</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">5</div>
+            <div class="label">Categories</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">2025-01-27</div>
+            <div class="label">Last Updated</div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">🏠 Home</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/">Home</a>
+              <div class="url-meta">
+                <span class="priority">1.0</span>
+                <span>Weekly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">🔄 Core Utilities</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/data-transform"
+                >Data Transform</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/encoding">Encoding/Decoding</a>
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/text-utilities"
+                >Text Utilities</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">🔐 Security & Identity</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/generators"
+                >Generator Toolkit</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/hash-verify">Hash & Verify</a>
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/jwt-decoder">JWT Decoder</a>
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">💻 Code & Development</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/code-formatter"
+                >Code & JSON Tools</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.9</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/regex-tester">Regex Tester</a>
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/code-diff">Text Diff</a>
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">🎨 Web & Design</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/color-picker">Color Picker</a>
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/url-tools">URL Tools</a>
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/seo-generator"
+                >SEO Generator</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/qr-code">QR Code Generator</a>
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">⏰ Utilities</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/timestamp-tools"
+                >Timestamp Tools</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.8</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <h2 class="category-title">🎮 Developer Playground</h2>
+          <div class="url-list">
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/markdown-previewer"
+                >Markdown Previewer</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.7</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/html-playground"
+                >HTML Playground</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.7</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/js-runner"
+                >JavaScript Runner</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.7</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+            <div class="url-item">
+              <a href="https://devutil.dps.codes/regex-playground"
+                >Regex Playground</a
+              >
+              <div class="url-meta">
+                <span class="priority">0.7</span>
+                <span>Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>
+          Generated on 2025-01-27 |
+          <a href="https://devutil.dps.codes/">Developer Utilities Tool</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem">
+          View <a href="/sitemap.xml">XML Sitemap</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

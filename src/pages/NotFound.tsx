@@ -16,7 +16,7 @@ export default function NotFound() {
             <Helmet>
                 <title>404 - Page Not Found | Developer Utilities Tool</title>
                 <meta name="description" content="The page you're looking for doesn't exist." />
-                <link rel="canonical" href="https://devutil.xyz/" />
+                <link rel="canonical" href="https://devutil.dps.codes/" />
             </Helmet>
 
             <div className="min-h-[80vh] flex items-center justify-center px-6 py-12">
