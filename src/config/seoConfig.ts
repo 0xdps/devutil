@@ -96,12 +96,12 @@ export const toolsMetadata: Record<string, ToolMeta> = {
         toolDescription: 'Test and debug regular expressions with real-time matching using Developer Utilities Tool - privacy-focused, free, and instant.'
     },
     codeDiff: {
-        title: 'Code Diff Tool | Compare Code Online | Text Difference Checker - Developer Utilities Tool',
-        description: 'Compare code and text files online with Developer Utilities Tool. Side-by-side diff viewer with syntax highlighting. Free, privacy-first code comparison tool for developers.',
-        keywords: ['code diff', 'text diff', 'compare code', 'diff tool', 'code comparison', 'text comparison', 'diff viewer', 'Developer Utilities Tool', 'online code diff', 'privacy-first diff tool'],
+        title: 'Text Diff Tool | Compare Text Files Online | File Difference Checker - Developer Utilities Tool',
+        description: 'Compare text files, code, and documents online with Developer Utilities Tool. Upload files or paste text. Side-by-side diff viewer with line-by-line change detection. Free, privacy-first text comparison tool.',
+        keywords: ['text diff', 'file diff', 'compare files', 'diff tool', 'text comparison', 'file comparison', 'diff viewer', 'compare text online', 'file difference', 'Developer Utilities Tool', 'online text diff', 'privacy-first diff tool'],
         canonical: '/code-diff',
-        toolName: 'Code Diff',
-        toolDescription: 'Compare and visualize differences between code files with Developer Utilities Tool - privacy-focused, free, and instant.'
+        toolName: 'Text Diff',
+        toolDescription: 'Compare and visualize differences between text files and documents with Developer Utilities Tool - privacy-focused, free, and instant. Supports file uploads.'
     },
     colorPicker: {
         title: 'Color Picker | HEX, RGB, HSL Color Tool | Palette Generator - Developer Utilities Tool',

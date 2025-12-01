@@ -25,7 +25,7 @@ const tools = [
             { name: 'Code Formatter', path: '/code-formatter', icon: '✨', description: 'Beautify/minify code' },
             { name: 'JSON Tools', path: '/json-tools', icon: '📋', description: 'Diff, Path evaluator' },
             { name: 'Regex Tester', path: '/regex-tester', icon: '🔎', description: 'Test & build patterns' },
-            { name: 'Code Diff', path: '/code-diff', icon: '🔀', description: 'Compare code/text' },
+            { name: 'Text Diff', path: '/code-diff', icon: '🔀', description: 'Compare text/files' },
         ],
     },
     {
