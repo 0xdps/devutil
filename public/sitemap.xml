@@ -121,6 +121,14 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Timezone Compare -->
+  <url>
+    <loc>https://devutil.dps.codes/timezone-compare</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- Markdown Previewer -->
   <url>
     <loc>https://devutil.dps.codes/markdown-previewer</loc>
