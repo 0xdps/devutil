@@ -158,7 +158,7 @@ export default function JWTDecoder() {
         toolDescription={meta.toolDescription}
         toolUrl={meta.canonical}
       />
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             JWT Decoder
@@ -168,7 +168,8 @@ export default function JWTDecoder() {
           </p>
         </div>
 
-      <div className="space-y-6">
+      <div className="grid md:grid-cols-2 gap-6">
+        {/* Left: Input Container */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             JWT Token
@@ -206,7 +207,7 @@ export default function JWTDecoder() {
               }, 300) // Debounce for 300ms
             }}
             placeholder="Paste your JWT token here..."
-            className="w-full h-32 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 resize-none font-mono text-sm"
+            className="w-full h-64 md:h-96 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 resize-none font-mono text-sm"
           />
           <button
             onClick={() => decodeJWT()}
@@ -216,7 +217,9 @@ export default function JWTDecoder() {
           </button>
         </div>
 
-        {decoded && (
+        {/* Right: Output Container */}
+        <div className="space-y-6">
+        {decoded ? (
           <>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex justify-between items-center mb-4">
@@ -370,7 +373,15 @@ export default function JWTDecoder() {
               </div>
             </div>
           </>
+        ) : (
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 h-full flex items-center justify-center min-h-[400px]">
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="text-4xl mb-2">🔐</div>
+              <p>Decoded JWT will appear here</p>
+            </div>
+          </div>
         )}
+        </div>
       </div>
     </div>
     </>
