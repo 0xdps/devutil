@@ -7,19 +7,33 @@ interface LayoutProps {
     children: ReactNode
 }
 
-export default function Layout({ children }: LayoutProps) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+const SIDEBAR_STORAGE_KEY = 'devutil-sidebar-open'
 
-    // Force dark mode and open sidebar by default on desktop after hydration
+export default function Layout({ children }: LayoutProps) {
+    // Load persisted sidebar state or default based on screen size
+    const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+        if (typeof window === 'undefined') return false
+        
+        // Check localStorage first
+        const persisted = localStorage.getItem(SIDEBAR_STORAGE_KEY)
+        if (persisted !== null) {
+            return persisted === 'true'
+        }
+        
+        // Default: open on desktop, closed on mobile
+        return window.innerWidth >= 768
+    })
+
+    // Force dark mode and persist sidebar state changes
     useEffect(() => {
         // Force dark mode
         document.documentElement.classList.add('dark')
-        
-        // Check if window is available (client-side only) and set initial state
-        if (typeof window !== 'undefined' && window.innerWidth >= 768) {
-            setIsSidebarOpen(true)
-        }
     }, [])
+
+    // Persist sidebar state to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem(SIDEBAR_STORAGE_KEY, String(isSidebarOpen))
+    }, [isSidebarOpen])
 
     return (
         <div className="h-screen bg-dark-bg flex flex-col overflow-hidden">
@@ -27,7 +41,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="flex flex-1 overflow-hidden">
                 <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
                 <div className="flex-1 flex flex-col min-h-0">
-                    <main className="flex-1 p-4 md:p-6 overflow-auto">
+                    <main className="flex-1 py-4 md:py-6 px-2 md:px-4 overflow-auto">
                         {children}
                     </main>
                     <Footer />

@@ -19,6 +19,7 @@ const URLTools = lazy(() => import('./pages/URLTools'))
 const SEOGenerator = lazy(() => import('./pages/SEOGenerator'))
 const QRCodeGenerator = lazy(() => import('./pages/QRCodeGenerator'))
 const TimestampTools = lazy(() => import('./pages/TimestampTools'))
+const TimezoneCompare = lazy(() => import('./pages/TimezoneCompare'))
 const MarkdownPreviewer = lazy(() => import('./pages/MarkdownPreviewer'))
 const HTMLPlayground = lazy(() => import('./pages/HTMLPlayground'))
 const JavaScriptRunner = lazy(() => import('./pages/JavaScriptRunner'))
@@ -57,6 +58,7 @@ function App() {
                         <Route path="/seo-generator" element={<SEOGenerator />} />
                         <Route path="/qr-code" element={<QRCodeGenerator />} />
                         <Route path="/timestamp-tools" element={<TimestampTools />} />
+                        <Route path="/timezone-compare" element={<TimezoneCompare />} />
                         <Route path="/markdown-previewer" element={<MarkdownPreviewer />} />
                         <Route path="/html-playground" element={<HTMLPlayground />} />
                         <Route path="/js-runner" element={<JavaScriptRunner />} />

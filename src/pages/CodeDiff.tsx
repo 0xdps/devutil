@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { diffLines, type Change } from 'diff'
 import toast from 'react-hot-toast'
 import SEO from '../components/SEO'
@@ -16,6 +16,9 @@ export default function CodeDiff() {
   const [mode, setMode] = useState<DiffMode>('side-by-side')
   const leftFileInputRef = useRef<HTMLInputElement>(null)
   const rightFileInputRef = useRef<HTMLInputElement>(null)
+  const leftScrollRef = useRef<HTMLDivElement>(null)
+  const rightScrollRef = useRef<HTMLDivElement>(null)
+  const isScrollingRef = useRef(false)
 
   const handleFileUpload = async (
     file: File,
@@ -104,6 +107,44 @@ export default function CodeDiff() {
     toast.success('Diff exported')
   }
 
+  // Synchronized scrolling effect
+  useEffect(() => {
+    if (mode !== 'side-by-side' || !leftScrollRef.current || !rightScrollRef.current) {
+      return
+    }
+
+    const leftScroll = leftScrollRef.current
+    const rightScroll = rightScrollRef.current
+
+    const handleLeftScroll = () => {
+      if (!isScrollingRef.current) {
+        isScrollingRef.current = true
+        rightScroll.scrollTop = leftScroll.scrollTop
+        requestAnimationFrame(() => {
+          isScrollingRef.current = false
+        })
+      }
+    }
+
+    const handleRightScroll = () => {
+      if (!isScrollingRef.current) {
+        isScrollingRef.current = true
+        leftScroll.scrollTop = rightScroll.scrollTop
+        requestAnimationFrame(() => {
+          isScrollingRef.current = false
+        })
+      }
+    }
+
+    leftScroll.addEventListener('scroll', handleLeftScroll)
+    rightScroll.addEventListener('scroll', handleRightScroll)
+
+    return () => {
+      leftScroll.removeEventListener('scroll', handleLeftScroll)
+      rightScroll.removeEventListener('scroll', handleRightScroll)
+    }
+  }, [mode, diffResult])
+
   const renderSideBySide = () => {
     const leftLines: Array<{ line: string; type: 'added' | 'removed' | 'unchanged' }> = []
     const rightLines: Array<{ line: string; type: 'added' | 'removed' | 'unchanged' }> = []
@@ -135,7 +176,10 @@ export default function CodeDiff() {
           <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700 font-semibold text-sm">
             Original
           </div>
-          <div className="overflow-auto max-h-[600px] font-mono text-sm">
+          <div 
+            ref={leftScrollRef}
+            className="overflow-auto max-h-[600px] font-mono text-sm"
+          >
             {leftLines.length === 0 ? (
               <div className="p-4 text-gray-500 dark:text-gray-400">No changes to display</div>
             ) : (
@@ -169,7 +213,10 @@ export default function CodeDiff() {
           <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700 font-semibold text-sm">
             Modified
           </div>
-          <div className="overflow-auto max-h-[600px] font-mono text-sm">
+          <div 
+            ref={rightScrollRef}
+            className="overflow-auto max-h-[600px] font-mono text-sm"
+          >
             {rightLines.length === 0 ? (
               <div className="p-4 text-gray-500 dark:text-gray-400">No changes to display</div>
             ) : (

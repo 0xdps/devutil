@@ -40,6 +40,7 @@ const tools = [
         category: 'Utilities',
         items: [
             { name: 'Timestamp Tools', path: '/timestamp-tools', icon: '⏰', description: 'Unix, Cron expression' },
+            { name: 'Timezone Compare', path: '/timezone-compare', icon: '🌍', description: 'Compare multiple timezones' },
         ],
     },
     // {

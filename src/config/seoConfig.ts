@@ -151,6 +151,14 @@ export const toolsMetadata: Record<string, ToolMeta> = {
         toolName: 'Timestamp Tools',
         toolDescription: 'Convert between Unix timestamps and human-readable dates using Developer Utilities Tool - privacy-focused, free, and instant.'
     },
+    timezoneCompare: {
+        title: 'Timezone Compare | Multiple Timezone Converter | World Clock - Developer Utilities Tool',
+        description: 'Compare current times across multiple timezones in real-time with Developer Utilities Tool. Perfect for coordinating with global teams. Free, privacy-first timezone comparison tool.',
+        keywords: ['timezone compare', 'world clock', 'timezone converter', 'multiple timezones', 'timezone comparison', 'global time', 'timezone tool', 'Developer Utilities Tool', 'online timezone compare', 'privacy-first timezone tool'],
+        canonical: '/timezone-compare',
+        toolName: 'Timezone Compare',
+        toolDescription: 'Compare current times across multiple timezones in real-time using Developer Utilities Tool - privacy-focused, free, and instant.'
+    },
     markdownPreviewer: {
         title: 'Markdown Previewer | Live Markdown Editor & Preview - Developer Utilities Tool',
         description: 'Write and preview Markdown in real-time with Developer Utilities Tool. Live Markdown editor with side-by-side preview and syntax highlighting. Free, privacy-first online Markdown tool for developers.',
