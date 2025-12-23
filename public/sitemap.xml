@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home -->
   <url>
-    <loc>https://devutil.dps.codes/</loc>
+    <loc>https://devutil.codes/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
   
   <!-- Data Transform -->
   <url>
-    <loc>https://devutil.dps.codes/data-transform</loc>
+    <loc>https://devutil.codes/data-transform</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
   
   <!-- Encoding -->
   <url>
-    <loc>https://devutil.dps.codes/encoding</loc>
+    <loc>https://devutil.codes/encoding</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -27,7 +27,7 @@
   
   <!-- Text Utilities -->
   <url>
-    <loc>https://devutil.dps.codes/text-utilities</loc>
+    <loc>https://devutil.codes/text-utilities</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -35,7 +35,7 @@
   
   <!-- Generator Toolkit -->
   <url>
-    <loc>https://devutil.dps.codes/generators</loc>
+    <loc>https://devutil.codes/generators</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -43,7 +43,7 @@
   
   <!-- Hash & Verify -->
   <url>
-    <loc>https://devutil.dps.codes/hash-verify</loc>
+    <loc>https://devutil.codes/hash-verify</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -51,7 +51,7 @@
   
   <!-- JWT Decoder -->
   <url>
-    <loc>https://devutil.dps.codes/jwt-decoder</loc>
+    <loc>https://devutil.codes/jwt-decoder</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -59,7 +59,7 @@
   
   <!-- Code & JSON Tools -->
   <url>
-    <loc>https://devutil.dps.codes/code-formatter</loc>
+    <loc>https://devutil.codes/code-formatter</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -67,7 +67,7 @@
   
   <!-- Regex Tester -->
   <url>
-    <loc>https://devutil.dps.codes/regex-tester</loc>
+    <loc>https://devutil.codes/regex-tester</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -75,7 +75,7 @@
   
   <!-- Text Diff -->
   <url>
-    <loc>https://devutil.dps.codes/code-diff</loc>
+    <loc>https://devutil.codes/code-diff</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -83,7 +83,7 @@
   
   <!-- Color Picker -->
   <url>
-    <loc>https://devutil.dps.codes/color-picker</loc>
+    <loc>https://devutil.codes/color-picker</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -91,7 +91,7 @@
   
   <!-- URL Tools -->
   <url>
-    <loc>https://devutil.dps.codes/url-tools</loc>
+    <loc>https://devutil.codes/url-tools</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -99,7 +99,7 @@
   
   <!-- SEO Generator -->
   <url>
-    <loc>https://devutil.dps.codes/seo-generator</loc>
+    <loc>https://devutil.codes/seo-generator</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -107,7 +107,7 @@
   
   <!-- QR Code Generator -->
   <url>
-    <loc>https://devutil.dps.codes/qr-code</loc>
+    <loc>https://devutil.codes/qr-code</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -115,7 +115,7 @@
   
   <!-- Timestamp Tools -->
   <url>
-    <loc>https://devutil.dps.codes/timestamp-tools</loc>
+    <loc>https://devutil.codes/timestamp-tools</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -123,7 +123,7 @@
   
   <!-- Timezone Compare -->
   <url>
-    <loc>https://devutil.dps.codes/timezone-compare</loc>
+    <loc>https://devutil.codes/timezone-compare</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -131,7 +131,7 @@
   
   <!-- Markdown Previewer -->
   <url>
-    <loc>https://devutil.dps.codes/markdown-previewer</loc>
+    <loc>https://devutil.codes/markdown-previewer</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -139,7 +139,7 @@
   
   <!-- HTML Playground -->
   <url>
-    <loc>https://devutil.dps.codes/html-playground</loc>
+    <loc>https://devutil.codes/html-playground</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -147,7 +147,7 @@
   
   <!-- JavaScript Runner -->
   <url>
-    <loc>https://devutil.dps.codes/js-runner</loc>
+    <loc>https://devutil.codes/js-runner</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -155,7 +155,7 @@
   
   <!-- Regex Playground -->
   <url>
-    <loc>https://devutil.dps.codes/regex-playground</loc>
+    <loc>https://devutil.codes/regex-playground</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -6,7 +6,7 @@
 
 **Developer Utilities Tool** is a modern, open-source web application that provides developers with a powerful suite of productivity tools. Every tool runs entirely in your browser—no server calls, no data transmission, no tracking. It's perfect for quick conversions, encoding/decoding, code formatting, testing, and more.
 
-**Live Site**: [devutil.dps.codes](https://devutil.dps.codes) | **Repository**: [0xdps/devutil-tools](https://github.com/0xdps/devutil-tools)
+**Live Site**: [devutil.codes](https://devutil.codes) | **Repository**: [0xdps/devutil-tools](https://github.com/0xdps/devutil-tools)
 
 ## ✨ Key Features
 

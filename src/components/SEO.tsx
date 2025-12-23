@@ -1,16 +1,16 @@
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
-  title: string
-  description: string
-  keywords?: string[]
-  canonical?: string
-  type?: 'website' | 'article' | 'WebApplication'
-  image?: string
-  toolName?: string
-  toolDescription?: string
-  toolUrl?: string
-  noindex?: boolean
+  title: string;
+  description: string;
+  keywords?: string[];
+  canonical?: string;
+  type?: "website" | "article" | "WebApplication";
+  image?: string;
+  toolName?: string;
+  toolDescription?: string;
+  toolUrl?: string;
+  noindex?: boolean;
 }
 
 export default function SEO({
@@ -18,121 +18,128 @@ export default function SEO({
   description,
   keywords = [],
   canonical,
-  type = 'WebApplication',
-  image = '/og-image.png',
+  type = "WebApplication",
+  image = "/og-image.png",
   toolName,
   toolDescription,
   toolUrl,
-  noindex = false
+  noindex = false,
 }: SEOProps) {
-  const siteUrl = 'https://devutil.dps.codes' // Update with your actual domain
-  const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl
-  const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`
+  const siteUrl = "https://devutil.codes"; // Update with your actual domain
+  const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
+  const fullImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   // Structured data for the website
   const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    'name': 'Developer Utilities Tool',
-    'applicationCategory': 'DeveloperApplication',
-    'operatingSystem': 'Web Browser',
-    'offers': {
-      '@type': 'Offer',
-      'price': '0',
-      'priceCurrency': 'USD'
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Developer Utilities Tool",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web Browser",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
     },
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': '4.8',
-      'ratingCount': '150',
-      'bestRating': '5',
-      'worstRating': '1'
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "150",
+      bestRating: "5",
+      worstRating: "1",
     },
-    'description': 'A comprehensive collection of developer utilities and tools for everyday tasks',
-    'url': siteUrl,
-    'image': fullImage,
-    'author': {
-      '@type': 'Organization',
-      'name': 'Developer Utilities Tool'
-    }
-  }
+    description:
+      "A comprehensive collection of developer utilities and tools for everyday tasks",
+    url: siteUrl,
+    image: fullImage,
+    author: {
+      "@type": "Organization",
+      name: "Developer Utilities Tool",
+    },
+  };
 
   // Structured data for individual tools
-  const toolSchema = toolName ? {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    'name': toolName,
-    'applicationCategory': 'DeveloperApplication',
-    'operatingSystem': 'Web Browser',
-    'offers': {
-      '@type': 'Offer',
-      'price': '0',
-      'priceCurrency': 'USD'
-    },
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': '4.8',
-      'ratingCount': '150',
-      'bestRating': '5',
-      'worstRating': '1'
-    },
-    'description': toolDescription || description,
-    'url': toolUrl ? `${siteUrl}${toolUrl}` : fullCanonical,
-    'softwareVersion': '1.0',
-    'featureList': description,
-    'screenshot': fullImage
-  } : null
+  const toolSchema = toolName
+    ? {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: toolName,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Web Browser",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.8",
+          ratingCount: "150",
+          bestRating: "5",
+          worstRating: "1",
+        },
+        description: toolDescription || description,
+        url: toolUrl ? `${siteUrl}${toolUrl}` : fullCanonical,
+        softwareVersion: "1.0",
+        featureList: description,
+        screenshot: fullImage,
+      }
+    : null;
 
   // Breadcrumb schema
-  const breadcrumbSchema = toolUrl ? {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
-      {
-        '@type': 'ListItem',
-        'position': 1,
-        'name': 'Home',
-        'item': siteUrl
-      },
-      {
-        '@type': 'ListItem',
-        'position': 2,
-        'name': toolName,
-        'item': `${siteUrl}${toolUrl}`
+  const breadcrumbSchema = toolUrl
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: toolName,
+            item: `${siteUrl}${toolUrl}`,
+          },
+        ],
       }
-    ]
-  } : null
+    : null;
 
   // FAQ schema for tools
   const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    'mainEntity': [
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
       {
-        '@type': 'Question',
-        'name': 'Is Developer Utilities Tool free to use?',
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': 'Yes, all tools on Developer Utilities Tool are completely free to use with no registration required.'
-        }
+        "@type": "Question",
+        name: "Is Developer Utilities Tool free to use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, all tools on Developer Utilities Tool are completely free to use with no registration required.",
+        },
       },
       {
-        '@type': 'Question',
-        'name': 'Do you store my data?',
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': 'No, all operations are performed locally in your browser. Your data never leaves your device.'
-        }
-      }
-    ]
-  }
+        "@type": "Question",
+        name: "Do you store my data?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No, all operations are performed locally in your browser. Your data never leaves your device.",
+        },
+      },
+    ],
+  };
 
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+      {keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(", ")} />
+      )}
       <link rel="canonical" href={fullCanonical} />
 
       {/* Open Graph / Facebook */}
@@ -151,7 +158,10 @@ export default function SEO({
       <meta name="twitter:image" content={fullImage} />
 
       {/* Additional Meta Tags */}
-      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+      <meta
+        name="robots"
+        content={noindex ? "noindex, follow" : "index, follow"}
+      />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
       <meta name="author" content="Developer Utilities Tool" />
@@ -160,7 +170,10 @@ export default function SEO({
       <meta name="theme-color" content="#4F46E5" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="Developer Utilities Tool" />
+      <meta
+        name="apple-mobile-web-app-title"
+        content="Developer Utilities Tool"
+      />
 
       {/* Structured Data */}
       <script type="application/ld+json">
@@ -168,9 +181,7 @@ export default function SEO({
       </script>
 
       {toolSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(toolSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(toolSchema)}</script>
       )}
 
       {breadcrumbSchema && (
@@ -180,10 +191,8 @@ export default function SEO({
       )}
 
       {!toolUrl && (
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       )}
     </Helmet>
-  )
+  );
 }
