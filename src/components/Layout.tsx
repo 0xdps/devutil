@@ -2,6 +2,7 @@ import { ReactNode, useState, useEffect } from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
+import { usePageView } from '../hooks/usePageView'
 
 interface LayoutProps {
     children: ReactNode
@@ -10,6 +11,9 @@ interface LayoutProps {
 const SIDEBAR_STORAGE_KEY = 'devutil-sidebar-open'
 
 export default function Layout({ children }: LayoutProps) {
+    // Enable automatic page view tracking
+    usePageView()
+
     // Load persisted sidebar state or default based on screen size
     const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
         if (typeof window === 'undefined') return false
