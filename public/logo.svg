@@ -1,24 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
+    <!-- Background: deep dark navy gradient -->
     <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#080d24"/>
       <stop offset="100%" stop-color="#0d1b3e"/>
     </linearGradient>
+
+    <!-- Accent: sky blue → teal -->
     <linearGradient id="accent" x1="100" y1="256" x2="420" y2="256" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#38bdf8"/>
       <stop offset="100%" stop-color="#2dd4bf"/>
     </linearGradient>
+
+    <!-- Inner highlight on top edge -->
     <linearGradient id="topShine" x1="0" y1="0" x2="0" y2="80" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
+
+    <!-- Soft glow behind chevron -->
+    <radialGradient id="glow" cx="200" cy="330" r="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <!-- Rounded square background -->
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- Top edge highlight -->
   <rect width="512" height="80" rx="112" fill="url(#topShine)"/>
+
+  <!-- Glow behind main text -->
+  <ellipse cx="256" cy="330" rx="200" ry="130" fill="url(#glow)"/>
+
+  <!-- macOS-style window dots -->
   <circle cx="138" cy="163" r="20" fill="#ff5f57"/>
   <circle cx="210" cy="163" r="20" fill="#febc2e"/>
   <circle cx="282" cy="163" r="20" fill="#28c840"/>
+
+  <!-- Window title bar separator -->
   <rect x="60" y="198" width="392" height="1.5" fill="#1e3660" opacity="0.9"/>
-  <path d="M112 265 L188 326 L112 387" stroke="url(#accent)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Terminal ">" chevron prompt -->
+  <path
+    d="M112 265 L188 326 L112 387"
+    stroke="url(#accent)"
+    stroke-width="34"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Blinking cursor block "_" -->
   <rect x="214" y="358" width="88" height="24" rx="12" fill="url(#accent)"/>
+
+  <!-- Subtle scan-line texture (two faint horizontal lines) -->
+  <rect x="60" y="288" width="392" height="1" fill="#ffffff" opacity="0.025"/>
+  <rect x="60" y="344" width="392" height="1" fill="#ffffff" opacity="0.025"/>
 </svg>
