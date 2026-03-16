@@ -91,7 +91,7 @@ For complete details, examples, and best practices, see:
 Check your Anately dashboard:
 
 - **URL:** https://manage.anately.sh/
-- **Website ID:** `3a156bab-4fdb-48d1-aebe-d67029b5bc40`
+- **Website ID:** `c1ecfe71-2795-4b1c-8253-d9d64fc797e7`
 
 Go to your dashboard to see:
 

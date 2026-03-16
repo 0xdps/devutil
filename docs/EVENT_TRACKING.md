@@ -4,7 +4,7 @@
 
 This project uses **Anately** for analytics and event tracking. Anately is a privacy-focused analytics platform that automatically tracks page views and custom events across your application.
 
-**Website ID:** `3a156bab-4fdb-48d1-aebe-d67029b5bc40`
+**Website ID:** `c1ecfe71-2795-4b1c-8253-d9d64fc797e7`
 
 The analytics script is loaded globally in `index.html` and works seamlessly across all React routes.
 
@@ -394,7 +394,7 @@ You can filter events, view user journeys, see popular tools, track conversion f
    console.log(window.anately);
    ```
 
-3. **Verify Website ID** - Ensure the ID matches: `3a156bab-4fdb-48d1-aebe-d67029b5bc40`
+3. **Verify Website ID** - Ensure the ID matches: `c1ecfe71-2795-4b1c-8253-d9d64fc797e7`
 
 4. **Check Network Tab** - Verify requests to `manage.anately.sh` are being sent
    - Open DevTools → Network tab
