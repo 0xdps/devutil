@@ -1,0 +1,30 @@
+src/index.css
+  ae691ac8f55c9f90 24-26
+index.html
+  ae691ac8f55c9f90 13,18
+vite.config.ts
+  ae691ac8f55c9f90 16-17,19-22
+src/components/Header.tsx
+  ae691ac8f55c9f90 54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "83a1374eac296cb5a139eda9a611cb86280f10de",
+  "prompts": {
+    "ae691ac8f55c9f90": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "e8114f5e-6271-4f0a-acdf-76572f054756",
+        "model": "copilot/claude-sonnet-4.6"
+      },
+      "human_author": "Devendra Pratap Singh <dps.manit@gmail.com>",
+      "messages": [],
+      "total_additions": 12,
+      "total_deletions": 5,
+      "accepted_lines": 12,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/948e068cada81f2c48f7b51bc45236e91796b550da13661428089e5ff7b0720f"
+    }
+  }
+}
