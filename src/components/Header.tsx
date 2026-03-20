@@ -51,7 +51,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
 
     return (
         <>
-            <header className="bg-dark-card shadow-soft w-full sticky top-0 z-10 border-b border-dark-border">
+            <header className="bg-dark-card shadow-soft w-full sticky top-0 z-10 border-t border-white/10 border-b border-dark-border">
                 <div className="pl-4 pr-4 sm:pr-6 lg:pr-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex items-center gap-3">

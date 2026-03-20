@@ -13,9 +13,13 @@ export default defineConfig({
                 name: 'Developer Utilities Tool',
                 short_name: 'DevUtil',
                 description: 'A comprehensive collection of free developer utilities for everyday tasks.',
-                theme_color: '#1e40af',
-                background_color: '#f9fafb',
+                theme_color: '#1a1b26',
+                background_color: '#0d0d12',
                 display: 'standalone',
+                // On desktop PWAs, window-controls-overlay lets your app
+                // extend into the title bar. Falls back to 'standalone' on
+                // mobile or browsers that don't support it.
+                display_override: ['window-controls-overlay', 'standalone'],
                 orientation: 'any',
                 scope: '/',
                 start_url: '/',
