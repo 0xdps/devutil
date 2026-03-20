@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import { Toaster } from "react-hot-toast";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import PWAUpdatePrompt from "./components/PWAUpdatePrompt";
 
 // Lazy load all page components for code splitting
 const DataTransform = lazy(() => import("./pages/DataTransform"));
@@ -71,6 +72,7 @@ function App() {
         </Suspense>
       </Layout>
       <Toaster position="top-right" />
+      <PWAUpdatePrompt />
     </Router>
   );
 }

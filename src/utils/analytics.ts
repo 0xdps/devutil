@@ -4,6 +4,9 @@
  *
  * The Anately script is loaded globally in index.html and exposes window.umami
  * (standard Umami v2 global).
+ *
+ * Offline support: events fired while offline are persisted to localStorage
+ * and automatically flushed once connectivity is restored.
  */
 
 declare global {
@@ -16,13 +19,79 @@ declare global {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Offline event queue
+// ---------------------------------------------------------------------------
+
+const QUEUE_KEY = 'devutil_analytics_queue';
+const MAX_QUEUE_SIZE = 200; // guard against unbounded growth
+
+interface QueuedEvent {
+  eventName: string;
+  eventData?: Record<string, unknown>;
+  queuedAt: string;
+}
+
+function readQueue(): QueuedEvent[] {
+  try {
+    return JSON.parse(localStorage.getItem(QUEUE_KEY) ?? '[]');
+  } catch {
+    return [];
+  }
+}
+
+function writeQueue(queue: QueuedEvent[]): void {
+  try {
+    localStorage.setItem(QUEUE_KEY, JSON.stringify(queue));
+  } catch {
+    // localStorage full or unavailable — drop silently
+  }
+}
+
+function enqueue(eventName: string, eventData?: Record<string, unknown>): void {
+  const queue = readQueue();
+  if (queue.length >= MAX_QUEUE_SIZE) {
+    // Drop the oldest entry to make room (FIFO eviction)
+    queue.shift();
+  }
+  queue.push({ eventName, eventData, queuedAt: new Date().toISOString() });
+  writeQueue(queue);
+}
+
+function flushQueue(): void {
+  if (!navigator.onLine || !window.umami?.track) return;
+  const queue = readQueue();
+  if (queue.length === 0) return;
+
+  // Clear the queue first so a failure mid-flush doesn't cause double-sends
+  writeQueue([]);
+
+  for (const { eventName, eventData } of queue) {
+    try {
+      window.umami.track(eventName, eventData);
+    } catch {
+      // best-effort: a single bad event shouldn't block the rest
+    }
+  }
+}
+
+// Flush whenever the browser comes back online
+if (typeof window !== 'undefined') {
+  window.addEventListener('online', flushQueue);
+}
+
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
 /**
- * Track a custom event in Anately
- * Works across all pages since Anately is loaded globally
- * 
+ * Track a custom event in Anately.
+ * When offline, the event is queued in localStorage and replayed automatically
+ * once the device reconnects.
+ *
  * @param eventName - Name of the event (e.g., "tool_used", "code_copied")
  * @param eventData - Optional object with event metadata
- * 
+ *
  * @example
  * trackEvent("code_formatter_used", { format: "json", linesOfCode: 250 })
  */
@@ -31,10 +100,16 @@ export const trackEvent = (
   eventData?: Record<string, unknown>
 ): void => {
   try {
+    if (!navigator.onLine) {
+      enqueue(eventName, eventData);
+      return;
+    }
     if (window.umami?.track) {
       window.umami.track(eventName, eventData);
     }
   } catch (error) {
+    // Fallback: queue on any unexpected failure so events aren't lost
+    try { enqueue(eventName, eventData); } catch { /* ignore */ }
     console.warn("Analytics tracking failed:", error);
   }
 };

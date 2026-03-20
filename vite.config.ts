@@ -1,9 +1,86 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
+    plugins: [
+        react(),
+        VitePWA({
+            registerType: 'prompt',
+            includeAssets: ['favicon.ico', 'logo.svg', 'robots.txt'],
+            manifest: {
+                name: 'Developer Utilities Tool',
+                short_name: 'DevUtil',
+                description: 'A comprehensive collection of free developer utilities for everyday tasks.',
+                theme_color: '#1e40af',
+                background_color: '#f9fafb',
+                display: 'standalone',
+                orientation: 'any',
+                scope: '/',
+                start_url: '/',
+                icons: [
+                    {
+                        src: '/icon-192x192.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: '/icon-512x512.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: '/icon-180x180.png',
+                        sizes: '180x180',
+                        type: 'image/png',
+                    },
+                ],
+                categories: ['developer tools', 'utilities', 'productivity'],
+            },
+            workbox: {
+                globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+                runtimeCaching: [
+                    {
+                        urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'google-fonts-cache',
+                            expiration: {
+                                maxEntries: 10,
+                                maxAgeSeconds: 60 * 60 * 24 * 365,
+                            },
+                            cacheableResponse: {
+                                statuses: [0, 200],
+                            },
+                        },
+                    },
+                    {
+                        urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'gstatic-fonts-cache',
+                            expiration: {
+                                maxEntries: 10,
+                                maxAgeSeconds: 60 * 60 * 24 * 365,
+                            },
+                            cacheableResponse: {
+                                statuses: [0, 200],
+                            },
+                        },
+                    },
+                ],
+                navigateFallback: 'index.html',
+                cleanupOutdatedCaches: true,
+            },
+            devOptions: {
+                enabled: true,
+                type: 'module',
+            },
+        }),
+    ],
     base: '/',
     server: {
         port: 3000,
