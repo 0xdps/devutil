@@ -4,7 +4,7 @@
 
 ## 🚀 Overview
 
-**Developer Utilities Tool** is a modern, open-source web application that provides developers with a powerful suite of productivity tools. Every tool runs entirely in your browser—no server calls, no data transmission, no tracking. It's perfect for quick conversions, encoding/decoding, code formatting, testing, and more.
+**Developer Utilities Tool** is a modern, open-source web application that provides developers with a powerful suite of productivity tools. **All tool work runs in your browser**: your inputs and outputs are not sent to our servers for processing. We do collect **anonymous, aggregate usage statistics** (for example which pages and tools are opened) so we can see what is useful and prioritize improvements—we are **not** trying to identify who you are, and there are no accounts or sign-ins. It's perfect for quick conversions, encoding/decoding, code formatting, testing, and more.
 
 **Live Site**: [devutil.codes](https://devutil.codes) | **Repository**: [0xdps/devutil-tools](https://github.com/0xdps/devutil-tools)
 
@@ -12,11 +12,11 @@
 
 ### 🔒 Privacy First
 
-- **100% Client-Side Processing**: All tools run in your browser
-- **Zero Server Calls**: Your data never leaves your device
-- **No Tracking**: No analytics, cookies, or data collection
+- **100% Client-Side Tool Processing**: Encoding, conversion, hashing, and other tool logic run entirely in your browser; we do not upload your pasted text or files to process them
+- **No Profiling**: No accounts, no “log in to use tools,” and usage stats are for **aggregate** insight (what gets used), not for selling data or ad targeting
+- **Anonymous Usage Metrics**: Page views and optional tool events help us understand which utilities matter; see [Analytics setup](docs/ANALYTICS_SETUP.md) for what the app can record
 - **Open Source**: Full transparency—inspect the code yourself
-- **Offline Capable**: Works without internet after initial load
+- **Offline Capable**: After the app is cached (PWA), many tools keep working without a connection; first load and analytics still use the network when available
 
 ### 🎯 16+ Implemented Tools
 
@@ -520,18 +520,23 @@ npm run preview
 
 ### Privacy Guarantees
 
-- ✅ **100% Client-Side**: All processing happens in your browser
-- ✅ **No Server Calls**: Zero data transmission to external servers
-- ✅ **No Analytics**: No tracking, no cookies, no data collection
+- ✅ **100% Client-Side Tools**: Tool processing happens in your browser; we do not send your tool inputs or results to our own backend to run those utilities
+- ✅ **Anonymous Usage Statistics**: We track **aggregate** usage (e.g. which routes and tools are used) to guide the roadmap—we do not use this to know your name, email, or identity, and the app does not require sign-in
 - ✅ **Open Source**: Full transparency—inspect code yourself
-- ✅ **Offline Capable**: Works without internet after initial load
+- ✅ **Offline Capable**: With a cached build (PWA), many tools work offline; reconnecting may send queued analytics events (see `src/utils/analytics.ts`)
+
+**Details:** [docs/ANALYTICS_SETUP.md](docs/ANALYTICS_SETUP.md) · [docs/EVENT_TRACKING.md](docs/EVENT_TRACKING.md)
 
 ### Security Notes
 
 - Uses standard cryptographic libraries (crypto-js)
 - Password strength checker provides recommendations (not a security guarantee)
-- Client-side processing means sensitive data never leaves your device
+- Sensitive content you paste into a tool stays in your session for that tool’s logic; do not treat the live site as a secret store—use copies you control for highly sensitive material
 - No user accounts or authentication required
+
+### Third-party scripts on the live site
+
+The deployed site may load small third-party scripts (for example **privacy-oriented analytics** and optional **support widgets**). Those services have their own policies; tool payloads are still processed locally unless a specific tool explicitly uses the network (clearly indicated in the UI).
 
 ## 📱 Browser Support
 
@@ -626,4 +631,4 @@ If you find this project helpful, please consider:
 
 **Made with ❤️ for developers, by developers**
 
-_Last Updated: December 2025_
+_Last Updated: March 2026_
