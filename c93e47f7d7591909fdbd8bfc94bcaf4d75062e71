@@ -1,0 +1,23 @@
+README.md
+  f84a10ce477c43cd 7,15-17,19,523-524,526,528,534,537-539,634
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "c93e47f7d7591909fdbd8bfc94bcaf4d75062e71",
+  "prompts": {
+    "f84a10ce477c43cd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "17e586af-4469-4b1b-a508-bee279e480d2",
+        "model": "composer-2-fast"
+      },
+      "human_author": "Devendra Pratap Singh <dps.manit@gmail.com>",
+      "messages": [],
+      "total_additions": 16,
+      "total_deletions": 11,
+      "accepted_lines": 16,
+      "overriden_lines": 0
+    }
+  }
+}
