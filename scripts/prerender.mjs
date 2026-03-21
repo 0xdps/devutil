@@ -6,23 +6,29 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Keep in sync with src/App.tsx (canonical paths only; omit duplicate JSON tool aliases)
 const routes = [
     '/',
     '/data-transform',
     '/encoding',
     '/text-utilities',
-    '/generator-toolkit',
+    '/generators',
     '/hash-verify',
     '/jwt-decoder',
     '/code-formatter',
     '/regex-tester',
+    '/code-diff',
     '/color-picker',
     '/url-tools',
+    '/seo-generator',
     '/qr-code',
     '/timestamp-tools',
+    '/timezone-compare',
     '/markdown-previewer',
     '/html-playground',
     '/js-runner',
+    '/regex-playground',
+    '/contribute',
 ];
 
 const distPath = path.join(__dirname, '..', 'dist');
