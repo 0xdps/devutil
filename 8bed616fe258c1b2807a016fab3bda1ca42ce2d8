@@ -1,0 +1,29 @@
+scripts/prerender.mjs
+  f84a10ce477c43cd 9,15,20,23,26,30-31
+public/sitemap.html
+  f84a10ce477c43cd 177-178,181-182,185,383-395,400
+public/sitemap.xml
+  f84a10ce477c43cd 7,15,23,31,39,47,55,63,71,79,87,95,103,111,119,127,135,143,151,159,163-170
+docs/SHARED_CORE_AND_CLI_PLAN.md
+  f84a10ce477c43cd 1-110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "8bed616fe258c1b2807a016fab3bda1ca42ce2d8",
+  "prompts": {
+    "f84a10ce477c43cd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "17e586af-4469-4b1b-a508-bee279e480d2",
+        "model": "composer-2-fast"
+      },
+      "human_author": "Devendra Pratap Singh <dps.manit@gmail.com>",
+      "messages": [],
+      "total_additions": 164,
+      "total_deletions": 27,
+      "accepted_lines": 164,
+      "overriden_lines": 0
+    }
+  }
+}
