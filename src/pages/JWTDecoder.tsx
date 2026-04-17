@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import toast from 'react-hot-toast'
 import SEO from '../components/SEO'
 import { toolsMetadata } from '../config/seoConfig'
@@ -39,7 +39,7 @@ export default function JWTDecoder() {
     return key === 'iat' || key === 'exp' || key === 'nbf'
   }
 
-  const renderFieldValue = (key: string, value: unknown): JSX.Element => {
+  const renderFieldValue = (key: string, value: unknown): React.ReactElement => {
     if (isTimestamp(key) && typeof value === 'number') {
       const humanReadable = formatTimestamp(value)
       const isExpired = key === 'exp' && value < Date.now() / 1000

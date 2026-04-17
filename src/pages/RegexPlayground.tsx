@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import toast from 'react-hot-toast'
 import SEO from '../components/SEO'
 import { toolsMetadata } from '../config/seoConfig'
@@ -109,7 +109,7 @@ export default function RegexPlayground() {
     }
   }, [pattern, testText, flagString, flags.g])
 
-  const highlightMatches = (text: string): JSX.Element[] => {
+  const highlightMatches = (text: string): React.ReactElement[] => {
     if (matches.length === 0 || !pattern.trim()) {
       return [<span key="text">{text}</span>]
     }
