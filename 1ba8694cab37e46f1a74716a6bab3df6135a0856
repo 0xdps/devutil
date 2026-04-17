@@ -1,0 +1,24 @@
+eslint.config.cjs
+  h_d60f3499e5a1c3 1-5,8-18,20-23,25-30,32-33
+package.json
+  h_d60f3499e5a1c3 17,26-28,30,35,40-47,49,51-52,54
+src/pages/JWTDecoder.tsx
+  h_d60f3499e5a1c3 1,42
+src/index.css
+  h_d60f3499e5a1c3 1-2
+vite.config.ts
+  h_d60f3499e5a1c3 4,9,85
+src/pages/RegexPlayground.tsx
+  h_d60f3499e5a1c3 1,112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "1ba8694cab37e46f1a74716a6bab3df6135a0856",
+  "prompts": {},
+  "humans": {
+    "h_d60f3499e5a1c3": {
+      "author": "Devendra Pratap Singh"
+    }
+  }
+}
