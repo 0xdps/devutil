@@ -1,0 +1,23 @@
+.github/workflows/deploy.yml
+  34c24624765f540b 28-46,49,52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "0f85b2068188b7217be893d853661f1f5b03c261",
+  "prompts": {
+    "34c24624765f540b": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "6ff81893-371e-48a0-9554-128c1e38f93c",
+        "model": "unknown"
+      },
+      "human_author": "Devendra Pratap Singh",
+      "messages": [],
+      "total_additions": 21,
+      "total_deletions": 4,
+      "accepted_lines": 21,
+      "overriden_lines": 0
+    }
+  }
+}
