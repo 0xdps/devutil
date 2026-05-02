@@ -90,7 +90,7 @@ For complete details, examples, and best practices, see:
 
 Check your Anately dashboard:
 
-- **URL:** https://manage.anately.sh/
+- **URL:** https://analytics.0xlabs.space/
 - **Website ID:** `c1ecfe71-2795-4b1c-8253-d9d64fc797e7`
 
 Go to your dashboard to see:

@@ -361,7 +361,7 @@ export function JSONFormatter() {
 ## Analytics Dashboard
 
 View all tracked events in your Anately dashboard:
-**Dashboard:** https://manage.anately.sh/
+**Dashboard:** https://analytics.0xlabs.space/
 
 You can filter events, view user journeys, see popular tools, track conversion funnels, and more.
 
@@ -396,7 +396,7 @@ You can filter events, view user journeys, see popular tools, track conversion f
 
 3. **Verify Website ID** - Ensure the ID matches: `c1ecfe71-2795-4b1c-8253-d9d64fc797e7`
 
-4. **Check Network Tab** - Verify requests to `manage.anately.sh` are being sent
+4. **Check Network Tab** - Verify requests to `analytics.0xlabs.space` are being sent
    - Open DevTools → Network tab
    - Trigger an event
    - Look for POST requests to Anately
