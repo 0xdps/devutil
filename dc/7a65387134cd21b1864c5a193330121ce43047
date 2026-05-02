@@ -1,0 +1,18 @@
+docs/ANALYTICS_SETUP.md
+  h_d60f3499e5a1c3 93
+docs/EVENT_TRACKING.md
+  h_d60f3499e5a1c3 364,399
+index.html
+  h_d60f3499e5a1c3 83,85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "dc7a65387134cd21b1864c5a193330121ce43047",
+  "prompts": {},
+  "humans": {
+    "h_d60f3499e5a1c3": {
+      "author": "Devendra Pratap Singh"
+    }
+  }
+}
